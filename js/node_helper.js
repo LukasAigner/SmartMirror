@@ -7,6 +7,7 @@
 const Class = require("./class.js");
 const Log = require("./logger.js");
 const express = require("express");
+const cors = require("cors");
 
 var NodeHelper = Class.extend({
 	init: function () {
@@ -78,6 +79,9 @@ var NodeHelper = Class.extend({
 	 */
 	setExpressApp: function (app) {
 		this.expressApp = app;
+
+		// allow all origins
+		app.use(cors());
 
 		var publicPath = this.path + "/public";
 		app.use("/" + this.name, express.static(publicPath));

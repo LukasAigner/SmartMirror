@@ -1,0 +1,63 @@
+.post((req, res) => {
+                var header = "/* Magic Mirror Config Sample\n" +
+                    "*\n" +
+                    "* By Michael Teeuw http://michaelteeuw.nl\n" +
+                    "* MIT Licensed.\n" +
+                    "*\n" +
+                    "* For more information on how you can configure this file\n" +
+                    "* See https://github.com/MichMich/MagicMirror#configuration\n" +
+                    "*\n" +
+                    "*/\n" +
+                    "var config = ";
+                var footer = ";\n/*************** DO NOT EDIT THE LINE BELOW ***************/ \n" +
+                    "if (typeof module !== 'undefined') {module.exports = config;}";
+                var configPath = path.resolve(__dirname, "../../../config/config.js");
+                fs.writeFile(configPath, header + req.body + footer, function (err) {
+                    if (err) {
+                        res.writeHead(500, { "Content-Type": "text/plain" });
+                        res.end("Settings could not be saved");
+                        return console.log(err);
+                    }
+                    res.writeHead(200, { "Content-Type": "text/plain" });
+                    res.end("Settings saved");    // echo the result back
+                    //console.log("All config saved to file!");
+                });
+            });
+
+.post((req, res) => {
+                console.log(util.inspect(req.body.body, {
+                    showHidden: false,
+                    depth: null,
+                    maxArrayLength: null,
+                    compact: false
+                }));
+                console.log(req.body.body);
+                var header = "/* Magic Mirror Config Sample\n" +
+                    "*\n" +
+                    "* By Michael Teeuw http://michaelteeuw.nl\n" +
+                    "* MIT Licensed.\n" +
+                    "*\n" +
+                    "* For more information on how you can configure this file\n" +
+                    "* See https://github.com/MichMich/MagicMirror#configuration\n" +
+                    "*\n" +
+                    "*/\n" +
+                    "var config = ";
+                var footer = ";\n/*************** DO NOT EDIT THE LINE BELOW ***************/ \n" +
+                    "if (typeof module !== 'undefined') {module.exports = config;}";
+                var configPath = path.resolve(__dirname, "../../../config/config.js");
+                fs.writeFile(configPath, header + util.inspect(req.body.body, {
+                    showHidden: false,
+                    depth: null,
+                    maxArrayLength: null,
+                    compact: false
+                }) + footer, function (err) {
+                    if (err) {
+                        res.writeHead(500, { "Content-Type": "text/plain" });
+                        res.end("Settings could not be saved");
+                        return console.log(err);
+                    }
+                    res.writeHead(200, { "Content-Type": "text/plain" });
+                    res.end("Settings saved");    // echo the result back
+                    //console.log("All config saved to file!");
+                });
+            });
