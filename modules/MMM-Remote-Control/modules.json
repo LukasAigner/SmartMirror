@@ -217,6 +217,13 @@
 		"desc": "Cleanly shutdown (or reboot) your mirror, edit which modules are shown on your mirror and turn your monitor off and on from a simple website, i.e. from your smartphone."
 	},
 	{
+		"longname": "MM-Remote",
+		"id": "Klettner/MM-Remote",
+		"url": "https://github.com/Klettner/MM-Remote",
+		"author": "Klettner",
+		"desc": "Android app to control your MagicMirror remotely via smartphone. (Shutdown, reboot, toggle monitor on/off, change brightness of monitor, custom-commands...)"
+	},
+	{
 		"longname": "MMM-SendNotificationButton",
 		"id": "ralberth/MMM-SendNotificationButton",
 		"url": "https://github.com/ralberth/MMM-SendNotificationButton",
@@ -761,13 +768,6 @@
 		"url": "https://github.com/winstonma/MMM-HK-Transport",
 		"author": "MMM-HK-Transport",
 		"desc": "Display the transport info in Hong Kong."
-	},
-	{
-		"longname": "MMM-Hive",
-		"id": "flick116/MMM-Hive",
-		"url": "https://github.com/flick116/MMM-Hive",
-		"author": "MMM-Hive",
-		"desc": "Displays Hive (British Gas) inside / outside temperature."
 	},
 	{
 		"longname": "mm-hsl-timetable",
@@ -1386,13 +1386,6 @@
 		"desc": "Displays car routes on the map, using Yandex.Maps API"
 	},
 	{
-		"longname": "MMM-AlexaOnOff",
-		"id": "shbatm/MMM-AlexaOnOff",
-		"url": "https://github.com/shbatm/MMM-AlexaOnOff",
-		"author": "shbatm",
-		"desc": "Simple Mirror Control from External Home Assistant (Alexa/Google Home/HASS.io)"
-	},
-	{
 		"longname": "MMM-Alexa",
 		"id": "sakirtemel/MMM-alexa",
 		"url": "https://github.com/sakirtemel/MMM-alexa",
@@ -1407,6 +1400,13 @@
 		"desc": "The MMM-AlexaControl module allows you to control your Mirror with Alexa (every device that support Wemos devices). You can turn it on and off, change the page and send notifications to other modules."
 	},
 	{
+		"longname": "MMM-AlexaOnOff",
+		"id": "shbatm/MMM-AlexaOnOff",
+		"url": "https://github.com/shbatm/MMM-AlexaOnOff",
+		"author": "shbatm",
+		"desc": "Simple Mirror Control from External Home Assistant (Alexa/Google Home/HASS.io)"
+	},
+	{
 		"longname": "MMM-awesome-alexa",
 		"id": "dolanmiu/MMM-awesome-alexa",
 		"url": "https://github.com/dolanmiu/MMM-awesome-alexa",
@@ -1414,11 +1414,11 @@
 		"desc": "Easy, hands free Amazon Alexa integration; activated, simply by saying \"Alexa\"."
 	},
 	{
-		"longname": "MMM-GoogleAssistant",
+		"longname": "~~MMM-GoogleAssistant~~",
 		"id": "bugsounet/MMM-GoogleAssistant",
 		"url": "https://github.com/bugsounet/MMM-GoogleAssistant",
 		"author": "bugsounet",
-		"desc": "Google Assistant integration. Like a Google Nest"
+		"desc": "~~Google Assistant integration.~~ Actually not working with Original MagicMirror"
 	},
 	{
 		"longname": "MMM-GoogleAssistant",
@@ -2014,6 +2014,13 @@
 		"url": "https://github.com/paphko/mmm-weatherchart",
 		"author": "paphko",
 		"desc": "Display a weather diagram provided by yr.no."
+	},
+	{
+		"longname": "MMM-WeatherChart",
+		"id": "mtatsuma/MMM-WeatherChart",
+		"url": "https://github.com/mtatsuma/MMM-WeatherChart",
+		"author": "mtatsuma",
+		"desc": "Display a weather forecast chart using [OpenWeather](https://openweathermap.org/) API and [Chart.js](https://www.chartjs.org/), an open-source library to plot data on charts."
 	},
 	{
 		"longname": "MMM-WeatherDependentClothes",
@@ -2681,6 +2688,13 @@
 		"desc": "A fork of masters1222s module. Module to Hide Everything on Screen. I have added lot's of new features and consummations."
 	},
 	{
+		"longname": "MMM-Hive",
+		"id": "flick116/MMM-Hive",
+		"url": "https://github.com/flick116/MMM-Hive",
+		"author": "flick116",
+		"desc": "Displays Hive (British Gas) inside / outside temperature."
+	},
+	{
 		"longname": "MMM-HomeAssistant",
 		"id": "zuo000/MMM-HomeAssistant",
 		"url": "https://github.com/zuo000/MMM-HomeAssistant",
@@ -2931,6 +2945,13 @@
 		"url": "https://github.com/PatriceG/MMM-MPR121",
 		"author": "PatriceG",
 		"desc": "Connects multiple touch (capacitive) buttons via a MPR121 touch controller to send notifications to other modules (based on MMM-Buttons)"
+	},
+	{
+		"longname": "MMM-qnapDownloadStation",
+		"id": "flick116/MMM-qnapDownloadStation",
+		"url": "https://github.com/flick116/MMM-qnapDownloadStation",
+		"author": "flick116",
+		"desc": "Displays downloads from Download Station running on a QNAP NAS."
 	},
 	{
 		"longname": "MMM-MQTT",
@@ -3514,6 +3535,13 @@
 		"desc": "A fork of CFenners module with new features. It's used to display informations about the currently playing songs on your Sonos system."
 	},
 	{
+		"longname": "MMM-StopwatchTimer",
+		"id": "Klettner/MMM-StopwatchTimer",
+		"url": "https://github.com/Klettner/MMM-StopwatchTimer",
+		"author": "Klettner",
+		"desc": "Display an alert-style timer or stopwatch. Controllable via notifications or the [MM-Remote](https://github.com/Klettner/MM-Remote) android app."
+	},
+	{
 		"longname": "MMM-StorH",
 		"id": "SkogDev/MMM-StorH",
 		"url": "https://github.com/SkogDev/MMM-StorH",
@@ -3638,6 +3666,13 @@
 		"url": "https://github.com/Jopyth/MMM-Trello",
 		"author": "Jopyth",
 		"desc": "This module can show [Trello](https://trello.com/) cards on your mirror."
+	},
+	{
+		"longname": "MMM-TuyaSL",
+		"id": "slametps/MMM-TuyaSL",
+		"url": "https://github.com/slametps/MMM-TuyaSL",
+		"author": "Slamet PS",
+		"desc": "Display the status of smarthome devices based on Tuya IoT-Platform (managed by SmartLife app)."
 	},
 	{
 		"longname": "MMM-UDR",

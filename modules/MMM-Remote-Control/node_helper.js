@@ -449,6 +449,7 @@ module.exports = NodeHelper.create(
 				var self = this;
 
 				if (query.data === "modulesAvailable") {
+					self.readModuleData();
 					this.modulesAvailable.sort(function (a, b) {
 						return a.name.localeCompare(b.name);
 					});
