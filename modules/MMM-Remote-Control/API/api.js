@@ -261,6 +261,11 @@ module.exports = {
                 this.executeQuery({ action: `BRIGHTNESS`, value: req.params.setting }, res);
             });
 
+        this.expressRouter.route('/mirrorHtml')
+            .get((req, res) => {
+                this.executeQuery({ action: `MIRRORHTML`, value: "test" }, res);
+            });
+
         this.expressApp.use('/api', this.expressRouter);
     },
 

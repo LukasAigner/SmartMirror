@@ -759,6 +759,11 @@ module.exports = NodeHelper.create(
 						this.sendResponse(res, err);
 					}
 				}
+				if (query.action === "MIRRORHTML") {
+					self.sendResponse(res);
+					self.sendSocketNotification(query.action, query.value);
+					return true;
+				}
 				self.sendResponse(res, new Error(`Invalid Option: ${query.action}`));
 				return false;
 			},
