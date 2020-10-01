@@ -263,7 +263,7 @@ module.exports = {
 
         this.expressRouter.route('/mirrorHtml')
             .get((req, res) => {
-                this.executeQuery({ action: `MIRRORHTML`, value: "test" }, res);
+                this.executeQuery({ action: `MIRRORHTML`}, res);
             });
 
         this.expressApp.use('/api', this.expressRouter);

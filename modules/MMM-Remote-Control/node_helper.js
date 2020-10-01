@@ -14,8 +14,6 @@ const util = require("util");
 const exec = require("child_process").exec;
 const os = require("os");
 const simpleGit = require("simple-git");
-const bodyParser = require("body-parser");
-const express = require("express");
 
 var defaultModules = require(path.resolve(__dirname + "/../default/defaultmodules.js"));
 
@@ -760,9 +758,17 @@ module.exports = NodeHelper.create(
 					}
 				}
 				if (query.action === "MIRRORHTML") {
-					self.sendResponse(res);
-					self.sendSocketNotification(query.action, query.value);
-					return true;
+				var html = fs.readFileSync(path.resolve(global.root_path + "/index.html"), { encoding: "utf8" });
+                html = html.replace("#VERSION#", global.version);
+
+                var configFile = "config/config.js";
+                if (typeof global.configuration_file !== "undefined") {
+                    configFile = global.configuration_file;
+                }
+                html = html.replace("#CONFIG_FILE#", configFile);
+				
+				this.sendResponse(res, undefined, { query: query, data: html });
+				return;
 				}
 				self.sendResponse(res, new Error(`Invalid Option: ${query.action}`));
 				return false;
