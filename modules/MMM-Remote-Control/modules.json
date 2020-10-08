@@ -77,6 +77,13 @@
 		"desc": "allows gesture control of compliments (only show when stepping in front of mirror), newsfeed (wave left / right, up for full-screen) and pages with two types of infrared sensors. Gestures can be up, down, left, right, far and close movements of the hand in front of a gesture sensor (APDS-9960) and present and away gestures in front of an IR distance sensor (GP2Y0A21YK)"
 	},
 	{
+		"longname": "MMM-GitHub-Monitor",
+		"id": "BrainConverter/MMM-GitHub-Monitor",
+		"url": "https://github.com/BrainConverter/MMM-GitHub-Monitor",
+		"author": "BrainConverter",
+		"desc": "displays GitHub repository information"
+	},
+	{
 		"longname": "MMM-Glance",
 		"id": "eouia/MMM-Glance",
 		"url": "https://github.com/eouia/MMM-Glance",
@@ -397,6 +404,13 @@
 		"url": "https://github.com/amcolash/MMM-GoogleFit",
 		"author": "amcolash",
 		"desc": "Display google fit daily step count and weights."
+	},
+	{
+		"longname": "MMM-HLTV",
+		"id": "Helpi90/MMM-HLTV",
+		"url": "https://github.com/Helpi90/MMM-HLTV",
+		"author": "Helpi90",
+		"desc": "MagicMirror² module which will show CS:GO matches provided by HLTV"
 	},
 	{
 		"longname": "MMM-LesJoiesDuCode",
@@ -754,6 +768,13 @@
 		"url": "https://github.com/georg90/MMM-HH-LocalTransport",
 		"author": "georg90",
 		"desc": "Display local transport in Hamburg/Germany."
+	},
+	{
+		"longname": "MMM-HH-LocalTransport",
+		"id": "skuethe/MMM-HH-LocalTransport",
+		"url": "https://github.com/skuethe/MMM-HH-LocalTransport",
+		"author": "skuethe",
+		"desc": "Display local transport in Hamburg/Germany. Now up to date"
 	},
 	{
 		"longname": "MMM-HK-KMB",
@@ -2177,6 +2198,13 @@
 		"desc": "Displays the medals for olympic winter games in Pyeongchang 2018."
 	},
 	{
+		"longname": "MMM-PGA",
+		"id": "mcl8on/MMM-PGA",
+		"url": "https://github.com/mcl8on/MMM-PGA",
+		"author": "mcl8on",
+		"desc": "A module to show PGA tournaments scores."
+	},
+	{
 		"longname": "MMM-SHL",
 		"id": "bureus/MMM-SHL",
 		"url": "https://github.com/bureus/MMM-SHL",
@@ -2231,13 +2259,6 @@
 		"url": "https://github.com/alexyak/camera",
 		"author": "alexyak",
 		"desc": "Display a webcamera video feed."
-	},
-	{
-		"longname": "email-mirror",
-		"id": "ronny3050/email-mirror",
-		"url": "https://github.com/ronny3050/email-mirror",
-		"author": "ronny3050",
-		"desc": "Display incoming emails."
 	},
 	{
 		"longname": "iFrame",
@@ -2497,6 +2518,13 @@
 		"url": "https://github.com/RichieCZ/MMM-CzechPost",
 		"author": "RichieCZ",
 		"desc": "Display tracking information for parcels handled by Czech Post"
+	},
+	{
+		"longname": "MMM-Daikin",
+		"id": "kymeyer/MMM-daikin",
+		"url": "https://github.com/kymeyer/MMM-daikin",
+		"author": "KyMeyer",
+		"desc": "Displays information retreived from a Daikin Air Conditioner Unit"
 	},
 	{
 		"longname": "MMM-DailyAlarm",
@@ -2881,7 +2909,7 @@
 		"id": "Alvinger/MMM-Koket-by-Sodexo",
 		"url": "https://github.com/Alvinger/MMM-Koket-by-Sodexo",
 		"author": "Alvinger",
-		"desc": "Show school lunch menus from Köket by Sodexo (based on MMM-Skolmaten with different source for menus)"
+		"desc": "Replaced by MMM-Mashie-Skolmat! Show school lunch menus from Köket by Sodexo (based on MMM-Skolmaten with different source for menus)"
 	},
 	{
 		"longname": "MMM-LCDControl",
@@ -2917,6 +2945,13 @@
 		"url": "https://github.com/idoodler/MMM-Loxone",
 		"author": "idoodler",
 		"desc": "MMM-Loxone connects to your Loxone Miniserver and lets it communicate to your MagicMirror²."
+	},
+	{
+		"longname": "MMM-Mashie-Skolmat",
+		"id": "Alvinger/MMM-Mashie-Skolmat",
+		"url": "https://github.com/Alvinger/MMM-Mashie-Skolmat",
+		"author": "Alvinger",
+		"desc": "Show school lunch menus from Mashie.com. (based on MMM-Skolmaten with different source for menus)"
 	},
 	{
 		"longname": "MMM-max",
@@ -3043,6 +3078,13 @@
 		"url": "https://github.com/ralberth/MMM-MysqlQuery",
 		"author": "ralberth",
 		"desc": "Run a SQL SELECT against a MySQL database and display the results in an HTML table."
+	},
+	{
+		"longname": "MMM-RecyclingCalendar",
+		"id": "FatTony123/MMM-RecyclingCalendar",
+		"url": "https://github.com/FatTony123/MMM-RecyclingCalendar",
+		"author": "FatTony123",
+		"desc": "Displays recycling calendar data from Stadt Zürich, Switzerland."
 	},
 	{
 		"longname": "MMM-MyStudyLife",

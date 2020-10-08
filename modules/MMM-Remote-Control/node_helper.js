@@ -623,12 +623,14 @@ module.exports = NodeHelper.create(
 					exec("sudo shutdown -h now", opts, (error, stdout, stderr) => {
 						self.checkForExecError(error, stdout, stderr, res);
 					});
+					self.sendResponse(res);
 					return true;
 				}
 				if (query.action === "REBOOT") {
 					exec("sudo shutdown -r now", opts, (error, stdout, stderr) => {
 						self.checkForExecError(error, stdout, stderr, res);
 					});
+					self.sendResponse(res);
 					return true;
 				}
 				if (query.action === "RESTART") {
@@ -638,6 +640,7 @@ module.exports = NodeHelper.create(
 								self.sendSocketNotification("RESTART");
 								self.checkForExecError(error, stdout, stderr, res);
 							});
+							self.sendResponse(res);
 							return;
 						}
 						if (stdout.indexOf(" mm ") > -1) {
@@ -645,9 +648,9 @@ module.exports = NodeHelper.create(
 								self.sendSocketNotification("RESTART");
 								self.checkForExecError(error, stdout, stderr, res);
 							});
+							self.sendResponse(res);
 							return;
 						}
-						self.sendResponse(res, error);
 					});
 					return true;
 				}
