@@ -651,6 +651,7 @@ module.exports = NodeHelper.create(
 							self.sendResponse(res);
 							return;
 						}
+						self.sendResponse(res, error);
 					});
 					return true;
 				}
