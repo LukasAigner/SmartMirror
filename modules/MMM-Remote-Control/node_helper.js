@@ -13,7 +13,7 @@ const fs = require("fs");
 const util = require("util");
 const exec = require("child_process").exec;
 const os = require("os");
-const simpleGit = require("simple-git");
+const simpleGit = require("simple-git/promise");
 const bodyParser = require("body-parser");
 const express = require("express");
 
@@ -185,7 +185,8 @@ module.exports = NodeHelper.create(
 							author: "MichMich",
 							desc: "",
 							id: "MichMich/MagicMirror",
-							url: "https://github.com/MichMich/MagicMirror/wiki/MagicMirror%C2%B2-Modules#default-modules"
+							url: "https://github.com/MichMich/MagicMirror/wiki/MagicMirror%C2%B2-Modules#default-modules",
+							cat: "default"
 						});
 						var module = self.modulesAvailable[self.modulesAvailable.length - 1];
 						var modulePath = self.configOnHd.paths.modules + "/default/" + defaultModules[i];
@@ -228,7 +229,8 @@ module.exports = NodeHelper.create(
 								author: "unknown",
 								desc: "",
 								id: "local/" + folderName,
-								url: ""
+								url: "",
+								cat: "local"
 							};
 							self.modulesAvailable.push(newModule);
 							currentModule = newModule;
@@ -246,13 +248,6 @@ module.exports = NodeHelper.create(
 						}
 
 						var sg = simpleGit(modulePath);
-						sg.fetch().status(function (err, data) {
-							if (!err) {
-								if (data.behind > 0) {
-									currentModule.updateAvailable = true;
-								}
-							}
-						});
 						if (!isInList) {
 							sg.getRemotes(true, function (error, result) {
 								if (error) {
@@ -266,6 +261,53 @@ module.exports = NodeHelper.create(
 							});
 						}
 					}
+				});
+			},
+
+			checkForUpdate: function (installed) {
+				return new Promise((resolve, reject) => {
+					var fetchCalls = [];
+					var statusCalls = [];
+					var elementsToChange = [];
+					installed.forEach((element) => {
+						let update = false;
+						let test;
+						var modulePath = this.configOnHd.paths.modules + "/" + element.longname;
+						var stat;
+						try {
+							element.updateAvailable = false;
+							stat = fs.statSync(path.join(modulePath, ".git"));
+						} catch (err) {
+							// Error when directory .git doesn't exist
+							// This module is not managed with git, skip
+							//console.log("false no git " + element.name)
+							element.updateAvailable = false;
+							return;
+						}
+
+						try {
+							var sg = simpleGit(modulePath);
+							fetchCalls.push(sg.fetch());
+							statusCalls.push(sg.status());
+							elementsToChange.push(element);
+						} catch (err) {
+							console.log(err);
+							reject(err);
+						}
+					});
+					Promise.all(fetchCalls).then(() => {
+						Promise.all(statusCalls).then((result) => {
+							for (let i = 0; i < result.length; i++) {
+								if (result[i].behind > 0) {
+									elementsToChange[i].updateAvailable = true;
+									//console.log(elementsToChange[i].updateAvailable + elementsToChange[i].name);
+								} else {
+									//console.log("false no update " + elementsToChange[i].name);
+								}
+							}
+							resolve();
+						});
+					});
 				});
 			},
 
@@ -445,26 +487,95 @@ module.exports = NodeHelper.create(
 				}
 			},
 
-			answerGet: function (query, res) {
+			answerGet: function (query, req, res) {
 				var self = this;
 
 				if (query.data === "modulesAvailable") {
-					self.readModuleData();
+					self.updateModuleList();
 					this.modulesAvailable.sort(function (a, b) {
 						return a.name.localeCompare(b.name);
 					});
 					this.sendResponse(res, undefined, { query: query, data: this.modulesAvailable });
 					return;
 				}
+				if (query.data === "modulesAvailablePOST") {
+					self.updateModuleList();
+					let modulesreturntemp = [];
+					let modulesreturn = [];
+					if (req.body.cat) {
+						this.modulesAvailable.forEach((element) => {
+							if (element.cat.toUpperCase() === req.body.cat.toUpperCase()) modulesreturntemp.push(element);
+						});
+					} else {
+						modulesreturntemp = this.modulesAvailable;
+					}
+					if (req.body.search) {
+						modulesreturntemp.forEach((element) => {
+							if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) modulesreturn.push(element);
+						});
+					} else {
+						modulesreturn = modulesreturntemp;
+					}
+					if (req.body.sort.toUpperCase() === "A-Z") {
+						modulesreturn.sort(function (a, b) {
+							return a.name.localeCompare(b.name);
+						});
+					}
+					if (req.body.sort.toUpperCase() === "Z-A") {
+						modulesreturn.sort(function (a, b) {
+							return b.name.localeCompare(a.name);
+						});
+					}
+					this.sendResponse(res, undefined, { query: query, data: modulesreturn });
+					return;
+				}
 				if (query.data === "modulesInstalled") {
+					self.updateModuleList();
 					var filterInstalled = function (value) {
-						return value.installed && !value.isDefaultModule;
+						return value.installed;
 					};
 					var installed = self.modulesAvailable.filter(filterInstalled);
 					installed.sort(function (a, b) {
 						return a.name.localeCompare(b.name);
 					});
 					this.sendResponse(res, undefined, { query: query, data: installed });
+					return;
+				}
+				if (query.data === "modulesInstalledPOST") {
+					self.updateModuleList();
+					let modulesreturntemp = [];
+					let modulesreturn = [];
+					var filterInstalled = function (value) {
+						return value.installed;
+					};
+					var installed = self.modulesAvailable.filter(filterInstalled);
+					if (req.body.cat) {
+						installed.forEach((element) => {
+							if (element.cat.toUpperCase() === req.body.cat.toUpperCase()) modulesreturntemp.push(element);
+						});
+					} else {
+						modulesreturntemp = installed;
+					}
+					if (req.body.search) {
+						modulesreturntemp.forEach((element) => {
+							if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) modulesreturn.push(element);
+						});
+					} else {
+						modulesreturn = modulesreturntemp;
+					}
+					if (req.body.sort.toUpperCase() === "A-Z") {
+						modulesreturn.sort(function (a, b) {
+							return a.name.localeCompare(b.name);
+						});
+					}
+					if (req.body.sort.toUpperCase() === "Z-A") {
+						modulesreturn.sort(function (a, b) {
+							return b.name.localeCompare(a.name);
+						});
+					}
+					this.checkForUpdate(modulesreturn).then(() => {
+						this.sendResponse(res, undefined, { query: query, data: modulesreturn });
+					});
 					return;
 				}
 				if (query.data === "translations") {

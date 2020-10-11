@@ -21,7 +21,7 @@ var downloadModules = {
 	defaults: {
 		modulesFile: path.resolve(__dirname, "../modules.json"), // Path to modules file
 		sourceUrl: "https://raw.githubusercontent.com/wiki/MichMich/MagicMirror/3rd-Party-Modules.md", // Source url
-		refreshRate: 3600 * 2, // Max Refresh of One Day
+		refreshRate: 1, // Max Refresh of One Day
 		force: false, // Force the update
 		callback: function (result) {
 			console.log(result);
@@ -38,25 +38,38 @@ var downloadModules = {
 	},
 
 	parseList: function (content) {
+		let arr = content.split("###");
+		let categories = [];
+		var regex = /\[(.*?)\]/g;
+		var temp;
+		do {
+			temp = regex.exec(arr[1].split("Categories")[1]);
+			if (temp) {
+				categories.push(temp[1]);
+			}
+		} while (temp);
+		//console.log(categories);
 		let re = /\|\s?\[(.*?)\]\((.*?)\)\s?\|(.*?)\|(.*)\|?/g;
 		let modules = [];
 
-		content.match(re).forEach((line) => {
-			line.replace(re, (match, name, url, author, desc) => {
-				let modDetail = {
-					longname: name.trim(),
-					id: url
-						.replace(".git", "")
-						.replace(/.*\/(.*?\/.*?)$/, "$1")
-						.trim(),
-					url: url.replace(".git", "").trim(),
-					author: author.replace(/\[(.*)\]\(.*\)/, "$1").trim(),
-					desc: desc.replace(/\|/, "").trim()
-				};
-				modules.push(modDetail);
+		for (let index = 2; index < arr.length; index++) {
+			arr[index].match(re).forEach((line) => {
+				line.replace(re, (match, name, url, author, desc) => {
+					let modDetail = {
+						longname: name.trim(),
+						id: url
+							.replace(".git", "")
+							.replace(/.*\/(.*?\/.*?)$/, "$1")
+							.trim(),
+						url: url.replace(".git", "").trim(),
+						author: author.replace(/\[(.*)\]\(.*\)/, "$1").trim(),
+						desc: desc.replace(/\|/, "").trim(),
+						cat: categories[index - 2]
+					};
+					modules.push(modDetail);
+				});
 			});
-		});
-
+		}
 		return modules;
 	},
 
