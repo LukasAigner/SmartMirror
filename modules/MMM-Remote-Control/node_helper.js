@@ -13,7 +13,8 @@ const fs = require("fs");
 const util = require("util");
 const exec = require("child_process").exec;
 const os = require("os");
-const simpleGit = require("simple-git/promise");
+const simpleGitpromise = require("simple-git/promise");
+const simpleGit = require("simple-git");
 const bodyParser = require("body-parser");
 const express = require("express");
 
@@ -286,7 +287,7 @@ module.exports = NodeHelper.create(
 						}
 
 						try {
-							var sg = simpleGit(modulePath);
+							var sg = simpleGitpromise(modulePath);
 							fetchCalls.push(sg.fetch());
 							statusCalls.push(sg.status());
 							elementsToChange.push(element);
@@ -928,28 +929,24 @@ module.exports = NodeHelper.create(
 
 				var git = simpleGit(localpath);
 				git.pull((error, result) => {
-					console.log(result);
-					console.log(error);
+					//console.log(result);
 					if (error) {
 						console.log(error);
 						self.sendResponse(res, error);
 						return;
 					}
 					if (result.summary.changes) {
-						console.log("found git changes");
 						exec("npm install", { cwd: localpath, timeout: 120000 }, (error, stdout, stderr) => {
 							if (error) {
 								console.log(error);
 								self.sendResponse(res, error, { stdout: stdout, stderr: stderr });
 							} else {
 								// success part
-								console.log("succes part");
 								self.readModuleData();
 								self.sendResponse(res, undefined, { code: "restart", info: name + " updated." });
 							}
 						});
 					} else {
-						console.log("no changes");
 						self.sendResponse(res, undefined, { code: "up-to-date", info: name + " already up to date." });
 					}
 				});
@@ -962,8 +959,6 @@ module.exports = NodeHelper.create(
 					return value.installed;
 				};
 				var installed = self.modulesAvailable.filter(filterInstalled);
-
-				console.log(__dirname + "/../" + module);
 
 				if (module) {
 					var modData = installed.find((m) => m.longname === module && m.isDefaultModule === false && m.longname !== "MMM-Remote-Control");
