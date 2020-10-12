@@ -511,7 +511,9 @@ module.exports = NodeHelper.create(
 					}
 					if (req.body.search) {
 						modulesreturntemp.forEach((element) => {
-							if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) modulesreturn.push(element);
+							if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1 || element.desc.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) {
+								modulesreturn.push(element);
+							}
 						});
 					} else {
 						modulesreturn = modulesreturntemp;
@@ -558,7 +560,7 @@ module.exports = NodeHelper.create(
 					}
 					if (req.body.search) {
 						modulesreturntemp.forEach((element) => {
-							if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) modulesreturn.push(element);
+							if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1 || element.desc.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) modulesreturn.push(element);
 						});
 					} else {
 						modulesreturn = modulesreturntemp;
@@ -906,7 +908,7 @@ module.exports = NodeHelper.create(
 
 				var self = this;
 
-				var path = __dirname + "/../../";
+				let localpath = __dirname + "/../../";
 				var name = "MM";
 
 				if (typeof module !== "undefined" && module !== "undefined") {
@@ -917,35 +919,81 @@ module.exports = NodeHelper.create(
 							return;
 						}
 
-						path = __dirname + "/../" + modData.longname;
+						localpath = __dirname + "/../" + modData.longname;
 						name = modData.name;
 					}
 				}
 
-				console.log("path: " + path + " name: " + name);
+				console.log(localpath);
 
-				var git = simpleGit(path);
+				var git = simpleGit(localpath);
 				git.pull((error, result) => {
+					console.log(result);
+					console.log(error);
 					if (error) {
 						console.log(error);
 						self.sendResponse(res, error);
 						return;
 					}
 					if (result.summary.changes) {
-						exec("npm install", { cwd: path, timeout: 120000 }, (error, stdout, stderr) => {
+						console.log("found git changes");
+						exec("npm install", { cwd: localpath, timeout: 120000 }, (error, stdout, stderr) => {
 							if (error) {
 								console.log(error);
 								self.sendResponse(res, error, { stdout: stdout, stderr: stderr });
 							} else {
 								// success part
+								console.log("succes part");
 								self.readModuleData();
 								self.sendResponse(res, undefined, { code: "restart", info: name + " updated." });
 							}
 						});
 					} else {
+						console.log("no changes");
 						self.sendResponse(res, undefined, { code: "up-to-date", info: name + " already up to date." });
 					}
 				});
+			},
+
+			deleteModule: function (module, res) {
+				var self = this;
+				self.updateModuleList();
+				var filterInstalled = function (value) {
+					return value.installed;
+				};
+				var installed = self.modulesAvailable.filter(filterInstalled);
+
+				console.log(__dirname + "/../" + module);
+
+				if (module) {
+					var modData = installed.find((m) => m.longname === module && m.isDefaultModule === false && m.longname !== "MMM-Remote-Control");
+					if (modData === undefined) {
+						this.sendResponse(res, new Error("Unknown Module"), { info: module });
+						return;
+					}
+				}
+
+				let localpath = __dirname + "/../" + modData.longname;
+
+				this.deleteFolderRecursive(localpath);
+
+				self.sendResponse(res, undefined, { info: "Module deleted" });
+			},
+
+			deleteFolderRecursive: function (localpath) {
+				if (fs.existsSync(localpath)) {
+					fs.readdirSync(localpath).forEach((file, index) => {
+						const curPath = path.join(localpath, file);
+						if (fs.lstatSync(curPath).isDirectory()) {
+							// recurse
+							this.deleteFolderRecursive(curPath);
+						} else {
+							// delete file
+							fs.unlinkSync(curPath);
+						}
+					});
+					fs.rmdirSync(localpath);
+				}
 			},
 
 			checkForExecError: function (error, stdout, stderr, res, data) {

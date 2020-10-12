@@ -211,6 +211,10 @@ module.exports = {
 			this.updateModule(req.params.moduleName, res);
 		});
 
+		this.expressRouter.route("/delete/:moduleName").get((req, res) => {
+			this.deleteModule(req.params.moduleName, res);
+		});
+
 		this.expressRouter
 			.route("/install")
 			.get((req, res) => {
