@@ -168,143 +168,142 @@ module.exports = NodeHelper.create(
 
 			readModuleData: function () {
 				var self = this;
+				var data;
 
-				fs.readFile(path.resolve(__dirname + "/modules.json"), (err, data) => {
-					self.modulesAvailable = JSON.parse(data.toString());
+				data = fs.readFileSync(path.resolve(__dirname + "/modules.json"));
+				self.modulesAvailable = JSON.parse(data.toString());
 
-					for (let i = 0; i < self.modulesAvailable.length; i++) {
-						self.modulesAvailable[i].name = self.formatName(self.modulesAvailable[i].longname);
-						self.modulesAvailable[i].isDefaultModule = false;
+				for (let i = 0; i < self.modulesAvailable.length; i++) {
+					self.modulesAvailable[i].name = self.formatName(self.modulesAvailable[i].longname);
+					self.modulesAvailable[i].isDefaultModule = false;
+				}
+
+				for (let i = 0; i < defaultModules.length; i++) {
+					let url;
+					let desc;
+					if (defaultModules[i] === "alert") {
+						desc = "This module displays notifications from other modules.";
+						url = "https://docs.magicmirror.builders/modules/alert.html";
 					}
-
-					for (let i = 0; i < defaultModules.length; i++) {
-						let url;
-						let desc;
-						if (defaultModules[i] === "alert") {
-							desc = "This module displays notifications from other modules.";
-							url = "https://docs.magicmirror.builders/modules/alert.html";
-						}
-						if (defaultModules[i] === "calendar") {
-							desc = "This module displays events from a public .ical calendar. It can combine multiple calendars.";
-							url = "https://docs.magicmirror.builders/modules/calendar.html";
-						}
-						if (defaultModules[i] === "clock") {
-							desc = "This module displays the current date and time. The information will be updated realtime.";
-							url = "https://docs.magicmirror.builders/modules/clock.html";
-						}
-						if (defaultModules[i] === "compliments") {
-							desc = "This module displays a random compliment.";
-							url = "https://docs.magicmirror.builders/modules/compliments.html";
-						}
-						if (defaultModules[i] === "currentweather") {
-							desc = "This module displays the current weather, including the windspeed, the sunset or sunrise time, the temperature and an icon to display the current conditions.";
-							url = "https://docs.magicmirror.builders/modules/currentweather.html";
-						}
-						if (defaultModules[i] === "helloworld") {
-							desc = "It is a simple way to display a static text on the mirror.";
-							url = "https://docs.magicmirror.builders/modules/helloworld.html";
-						}
-						if (defaultModules[i] === "newsfeed") {
-							desc = "This module displays news headlines based on an RSS feed.";
-							url = "https://docs.magicmirror.builders/modules/newsfeed.html";
-						}
-						if (defaultModules[i] === "updatenotification") {
-							desc = "This will display a message whenever a new version of the MagicMirror application is available.";
-							url = "https://docs.magicmirror.builders/modules/updatenotification.html#using-the-module";
-						}
-						if (defaultModules[i] === "weather") {
-							desc = "The module will be configurable to be used as a current weather view, or to show the forecast.";
-							url = "https://docs.magicmirror.builders/modules/weather.html#example";
-						}
-						if (defaultModules[i] === "weatherforecast") {
-							desc = "This module displays the weather forecast for the coming week, including an an icon to display the current conditions, the minimum temperature and the maximum temperature.";
-							url = "https://docs.magicmirror.builders/modules/weatherforecast.html";
-						}
-						self.modulesAvailable.push({
-							longname: defaultModules[i],
-							name: self.capitalizeFirst(defaultModules[i]),
-							isDefaultModule: true,
-							installed: true,
-							author: "MichMich",
-							desc: desc,
-							id: "MichMich/MagicMirror",
-							url: url,
-							cat: "default"
-						});
-						var module = self.modulesAvailable[self.modulesAvailable.length - 1];
-						var modulePath = self.configOnHd.paths.modules + "/default/" + defaultModules[i];
-						self.loadModuleDefaultConfig(module, modulePath);
+					if (defaultModules[i] === "calendar") {
+						desc = "This module displays events from a public .ical calendar. It can combine multiple calendars.";
+						url = "https://docs.magicmirror.builders/modules/calendar.html";
 					}
-
-					// now check for installed modules
-					fs.readdir(path.resolve(__dirname + "/.."), function (err, files) {
-						for (var i = 0; i < files.length; i++) {
-							if (files[i] !== "node_modules" && files[i] !== "default") {
-								self.addModule(files[i]);
-							}
-						}
+					if (defaultModules[i] === "clock") {
+						desc = "This module displays the current date and time. The information will be updated realtime.";
+						url = "https://docs.magicmirror.builders/modules/clock.html";
+					}
+					if (defaultModules[i] === "compliments") {
+						desc = "This module displays a random compliment.";
+						url = "https://docs.magicmirror.builders/modules/compliments.html";
+					}
+					if (defaultModules[i] === "currentweather") {
+						desc = "This module displays the current weather, including the windspeed, the sunset or sunrise time, the temperature and an icon to display the current conditions.";
+						url = "https://docs.magicmirror.builders/modules/currentweather.html";
+					}
+					if (defaultModules[i] === "helloworld") {
+						desc = "It is a simple way to display a static text on the mirror.";
+						url = "https://docs.magicmirror.builders/modules/helloworld.html";
+					}
+					if (defaultModules[i] === "newsfeed") {
+						desc = "This module displays news headlines based on an RSS feed.";
+						url = "https://docs.magicmirror.builders/modules/newsfeed.html";
+					}
+					if (defaultModules[i] === "updatenotification") {
+						desc = "This will display a message whenever a new version of the MagicMirror application is available.";
+						url = "https://docs.magicmirror.builders/modules/updatenotification.html#using-the-module";
+					}
+					if (defaultModules[i] === "weather") {
+						desc = "The module will be configurable to be used as a current weather view, or to show the forecast.";
+						url = "https://docs.magicmirror.builders/modules/weather.html#example";
+					}
+					if (defaultModules[i] === "weatherforecast") {
+						desc = "This module displays the weather forecast for the coming week, including an an icon to display the current conditions, the minimum temperature and the maximum temperature.";
+						url = "https://docs.magicmirror.builders/modules/weatherforecast.html";
+					}
+					self.modulesAvailable.push({
+						longname: defaultModules[i],
+						name: self.capitalizeFirst(defaultModules[i]),
+						isDefaultModule: true,
+						installed: true,
+						author: "MichMich",
+						desc: desc,
+						id: "MichMich/MagicMirror",
+						url: url,
+						cat: "default"
 					});
-				});
+					var module = self.modulesAvailable[self.modulesAvailable.length - 1];
+					var modulePath = self.configOnHd.paths.modules + "/default/" + defaultModules[i];
+					self.loadModuleDefaultConfig(module, modulePath);
+				}
+
+				// now check for installed modules
+				var files = fs.readdirSync(path.resolve(__dirname + "/.."));
+				for (var i = 0; i < files.length; i++) {
+					if (files[i] !== "node_modules" && files[i] !== "default") {
+						self.addModule(files[i]);
+					}
+				}
 			},
 
 			addModule: function (folderName) {
 				var self = this;
+				var stats;
 
 				var modulePath = this.configOnHd.paths.modules + "/" + folderName;
-				fs.stat(modulePath, (err, stats) => {
-					if (stats.isDirectory()) {
-						var isInList = false;
-						var currentModule;
-						self.modulesInstalled.push(folderName);
-						for (var i = 0; i < self.modulesAvailable.length; i++) {
-							if (self.modulesAvailable[i].longname === folderName) {
-								isInList = true;
-								self.modulesAvailable[i].installed = true;
-								currentModule = self.modulesAvailable[i];
-							}
-						}
-						if (!isInList) {
-							var newModule = {
-								longname: folderName,
-								name: self.formatName(folderName),
-								isDefaultModule: false,
-								installed: true,
-								author: "unknown",
-								desc: "",
-								id: "local/" + folderName,
-								url: "",
-								cat: "local"
-							};
-							self.modulesAvailable.push(newModule);
-							currentModule = newModule;
-						}
-						self.loadModuleDefaultConfig(currentModule, modulePath);
-
-						// check for available updates
-						var stat;
-						try {
-							stat = fs.statSync(path.join(modulePath, ".git"));
-						} catch (err) {
-							// Error when directory .git doesn't exist
-							// This module is not managed with git, skip
-							return;
-						}
-
-						var sg = simpleGit(modulePath);
-						if (!isInList) {
-							sg.getRemotes(true, function (error, result) {
-								if (error) {
-									console.log(error);
-								}
-								var baseUrl = result[0].refs.fetch;
-								// replacements
-								baseUrl = baseUrl.replace(".git", "").replace("github.com:", "github.com/");
-								// if cloned with ssh
-								currentModule.url = baseUrl.replace("git@", "https://");
-							});
+				stats = fs.statSync(modulePath);
+				if (stats.isDirectory()) {
+					var isInList = false;
+					var currentModule;
+					self.modulesInstalled.push(folderName);
+					for (var i = 0; i < self.modulesAvailable.length; i++) {
+						if (self.modulesAvailable[i].longname === folderName) {
+							isInList = true;
+							self.modulesAvailable[i].installed = true;
+							currentModule = self.modulesAvailable[i];
 						}
 					}
-				});
+					if (!isInList) {
+						var newModule = {
+							longname: folderName,
+							name: self.formatName(folderName),
+							isDefaultModule: false,
+							installed: true,
+							author: "unknown",
+							desc: "",
+							id: "local/" + folderName,
+							url: "",
+							cat: "local"
+						};
+						self.modulesAvailable.push(newModule);
+						currentModule = newModule;
+					}
+					self.loadModuleDefaultConfig(currentModule, modulePath);
+
+					// check for available updates
+					var stat;
+					try {
+						stat = fs.statSync(path.join(modulePath, ".git"));
+					} catch (err) {
+						// Error when directory .git doesn't exist
+						// This module is not managed with git, skip
+						return;
+					}
+
+					var sg = simpleGit(modulePath);
+					if (!isInList) {
+						sg.getRemotes(true, function (error, result) {
+							if (error) {
+								console.log(error);
+							}
+							var baseUrl = result[0].refs.fetch;
+							// replacements
+							baseUrl = baseUrl.replace(".git", "").replace("github.com:", "github.com/");
+							// if cloned with ssh
+							currentModule.url = baseUrl.replace("git@", "https://");
+						});
+					}
+				}
 			},
 
 			checkForUpdate: function (installed) {
@@ -1116,18 +1115,18 @@ module.exports = NodeHelper.create(
 
 			loadDefaultSettings: function () {
 				var self = this;
+				var data;
 
-				fs.readFile(path.resolve(__dirname + "/settings.json"), function (err, data) {
-					if (err) {
-						if (self.in("no such file or directory", err.message)) {
-							return;
-						}
-						console.log(err);
-					} else {
-						data = JSON.parse(data.toString());
-						self.sendSocketNotification("DEFAULT_SETTINGS", data);
+				try {
+					data = fs.readFileSync(path.resolve(__dirname + "/settings.json"));
+					data = JSON.parse(data.toString());
+					self.sendSocketNotification("DEFAULT_SETTINGS", data);
+				} catch (err) {
+					if (self.in("no such file or directory", err.message)) {
+						return;
 					}
-				});
+					console.log(err);
+				}
 			},
 
 			fillTemplates: function (data) {
@@ -1136,14 +1135,14 @@ module.exports = NodeHelper.create(
 
 			loadTranslation: function (language) {
 				var self = this;
+				var data;
 
-				fs.readFile(path.resolve(__dirname + "/translations/" + language + ".json"), function (err, data) {
-					if (err) {
-						return;
-					} else {
-						self.translation = Object.assign({}, self.translation, JSON.parse(data.toString()));
-					}
-				});
+				try {
+					data = fs.readFileSync(path.resolve(__dirname + "/translations/" + language + ".json"));
+					self.translation = Object.assign({}, self.translation, JSON.parse(data.toString()));
+				} catch (err) {
+					console.log(err);
+				}
 			},
 
 			getIpAddresses: function () {

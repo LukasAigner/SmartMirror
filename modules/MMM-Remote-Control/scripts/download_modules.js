@@ -86,22 +86,23 @@ var downloadModules = {
 				var jsoncategories = JSON.stringify(modules[1], undefined, 2);
 				var jsonPath = this.config.modulesFile;
 				var jsonPathCategories = path.resolve(__dirname, "../categories.json");
-				fs.writeFile(jsonPath, json, "utf8", (err, data) => {
-					if (err) {
-						console.error("MODULE LIST ERROR: modules.json updating fail:" + err.message);
-						this.config.callback("ERROR_UPDATING");
-					} else {
-						this.config.callback("UPDATED");
-					}
-				});
-				fs.writeFile(jsonPathCategories, jsoncategories, "utf8", (err, data) => {
-					if (err) {
-						console.error("CATEGORIES LIST ERROR: categories.json updating fail:" + err.message);
-						this.config.callback("ERROR_UPDATING");
-					} else {
-						this.config.callback("UPDATED");
-					}
-				});
+				try {
+					let data;
+					data = fs.writeFileSync(jsonPath, json, "utf8");
+					this.config.callback("UPDATED");
+				} catch (err) {
+					console.error("MODULE LIST ERROR: modules.json updating fail:" + err.message);
+					this.config.callback("ERROR_UPDATING");
+				}
+
+				try {
+					let data;
+					data = fs.writeFileSync(jsonPathCategories, jsoncategories, "utf8");
+					this.config.callback("UPDATED");
+				} catch (err) {
+					console.error("CATEGORIES LIST ERROR: categories.json updating fail:" + err.message);
+					this.config.callback("ERROR_UPDATING");
+				}
 			} else if (response.statusCode === 401) {
 				console.error("MODULE LIST ERROR: Could not load module data from wiki. 401 Error");
 				this.config.callback("ERROR_401");
