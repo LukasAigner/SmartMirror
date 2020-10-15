@@ -240,6 +240,14 @@
 		"cat": "Development / Core MagicMirror"
 	},
 	{
+		"longname": "MMM-RaiderIO",
+		"id": "jwcnewton/MMM-RaiderIO",
+		"url": "https://github.com/jwcnewton/MMM-RaiderIO",
+		"author": "jwcnewton",
+		"desc": "Module that displays Raider IO score for multiple characters over any realms or regions.",
+		"cat": "Development / Core MagicMirror"
+	},
+	{
 		"longname": "MMM-Remote-Control-Repository",
 		"id": "eouia/MMM-Remote-Control-Repository",
 		"url": "https://github.com/eouia/MMM-Remote-Control-Repository",
@@ -2861,6 +2869,14 @@
 		"url": "https://github.com/boazarad/MMM-CountDown",
 		"author": "boazarad",
 		"desc": "Display a count down to a date/event.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-NextEvent",
+		"id": "cure/MMM-NextEvent",
+		"url": "https://github.com/cure/MMM-NextEvent",
+		"author": "cure",
+		"desc": "Display a count down to the next event from [MMM-CalendarExt2](https://github.com/MMM-CalendarExt2/MMM-CalendarExt2).",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{

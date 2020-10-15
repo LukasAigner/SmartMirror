@@ -136,7 +136,7 @@ module.exports = {
 			res.json({ success: true });
 		});
 
-		this.expressRouter.route(["/modules", "/modules/installed", "/modules/available", "/brightness", "/translations", "/mmUpdateAvailable", "/config"]).get((req, res) => {
+		this.expressRouter.route(["/modules", "/modules/installed", "/modules/available", "/brightness", "/translations", "/mmUpdateAvailable", "/config", "/categories"]).get((req, res) => {
 			let r = req.path.substring(1);
 			r = r.replace(/\/([a-z])/, function (v) {
 				return v.substring(1).toUpperCase();

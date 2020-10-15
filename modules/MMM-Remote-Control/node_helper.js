@@ -178,15 +178,57 @@ module.exports = NodeHelper.create(
 					}
 
 					for (let i = 0; i < defaultModules.length; i++) {
+						let url;
+						let desc;
+						if (defaultModules[i] === "alert") {
+							desc = "This module displays notifications from other modules.";
+							url = "https://docs.magicmirror.builders/modules/alert.html";
+						}
+						if (defaultModules[i] === "calendar") {
+							desc = "This module displays events from a public .ical calendar. It can combine multiple calendars.";
+							url = "https://docs.magicmirror.builders/modules/calendar.html";
+						}
+						if (defaultModules[i] === "clock") {
+							desc = "This module displays the current date and time. The information will be updated realtime.";
+							url = "https://docs.magicmirror.builders/modules/clock.html";
+						}
+						if (defaultModules[i] === "compliments") {
+							desc = "This module displays a random compliment.";
+							url = "https://docs.magicmirror.builders/modules/compliments.html";
+						}
+						if (defaultModules[i] === "currentweather") {
+							desc = "This module displays the current weather, including the windspeed, the sunset or sunrise time, the temperature and an icon to display the current conditions.";
+							url = "https://docs.magicmirror.builders/modules/currentweather.html";
+						}
+						if (defaultModules[i] === "helloworld") {
+							desc = "It is a simple way to display a static text on the mirror.";
+							url = "https://docs.magicmirror.builders/modules/helloworld.html";
+						}
+						if (defaultModules[i] === "newsfeed") {
+							desc = "This module displays news headlines based on an RSS feed.";
+							url = "https://docs.magicmirror.builders/modules/newsfeed.html";
+						}
+						if (defaultModules[i] === "updatenotification") {
+							desc = "This will display a message whenever a new version of the MagicMirror application is available.";
+							url = "https://docs.magicmirror.builders/modules/updatenotification.html#using-the-module";
+						}
+						if (defaultModules[i] === "weather") {
+							desc = "The module will be configurable to be used as a current weather view, or to show the forecast.";
+							url = "https://docs.magicmirror.builders/modules/weather.html#example";
+						}
+						if (defaultModules[i] === "weatherforecast") {
+							desc = "This module displays the weather forecast for the coming week, including an an icon to display the current conditions, the minimum temperature and the maximum temperature.";
+							url = "https://docs.magicmirror.builders/modules/weatherforecast.html";
+						}
 						self.modulesAvailable.push({
 							longname: defaultModules[i],
 							name: self.capitalizeFirst(defaultModules[i]),
 							isDefaultModule: true,
 							installed: true,
 							author: "MichMich",
-							desc: "",
+							desc: desc,
 							id: "MichMich/MagicMirror",
-							url: "https://github.com/MichMich/MagicMirror/wiki/MagicMirror%C2%B2-Modules#default-modules",
+							url: url,
 							cat: "default"
 						});
 						var module = self.modulesAvailable[self.modulesAvailable.length - 1];
@@ -529,6 +571,14 @@ module.exports = NodeHelper.create(
 							return b.name.localeCompare(a.name);
 						});
 					}
+
+					var filterInstalled = function (value) {
+						return value.installed;
+					};
+					var installed = self.modulesAvailable.filter(filterInstalled);
+
+					modulesreturn = modulesreturn.filter((el) => !installed.includes(el));
+
 					this.sendResponse(res, undefined, { query: query, data: modulesreturn });
 					return;
 				}
@@ -576,6 +626,24 @@ module.exports = NodeHelper.create(
 							return b.name.localeCompare(a.name);
 						});
 					}
+
+					let config = this.getConfig();
+
+					for (let index = 0; index < modulesreturn.length; index++) {
+						const pos = config.modules.findIndex((i) => i.module === modulesreturn[index].longname);
+						if (pos !== -1) {
+							modulesreturn[index].isActiv = true;
+							if (this.hasProperty(config.modules[pos], "position")) {
+								modulesreturn[index].displayed = true;
+							} else {
+								modulesreturn[index].displayed = false;
+							}
+						} else {
+							modulesreturn[index].isActiv = false;
+							modulesreturn[index].displayed = false;
+						}
+					}
+
 					this.checkForUpdate(modulesreturn).then(() => {
 						this.sendResponse(res, undefined, { query: query, data: modulesreturn });
 					});
@@ -583,6 +651,14 @@ module.exports = NodeHelper.create(
 				}
 				if (query.data === "translations") {
 					this.sendResponse(res, undefined, { query: query, data: this.translation });
+					return;
+				}
+				if (query.data === "categories") {
+					self.updateModuleList();
+					fs.readFile(path.resolve(__dirname + "/categories.json"), (err, data) => {
+						let categories = JSON.parse(data.toString());
+						this.sendResponse(res, undefined, { query: query, data: categories });
+					});
 					return;
 				}
 				if (query.data === "mmUpdateAvailable") {
@@ -681,6 +757,10 @@ module.exports = NodeHelper.create(
 					}
 				}
 				return result;
+			},
+
+			hasProperty: function (object, key) {
+				return object ? hasOwnProperty.call(object, key) : false;
 			},
 
 			monitorControl: function (action, opts, res) {

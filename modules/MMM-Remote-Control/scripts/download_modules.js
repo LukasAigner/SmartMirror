@@ -51,6 +51,7 @@ var downloadModules = {
 		//console.log(categories);
 		let re = /\|\s?\[(.*?)\]\((.*?)\)\s?\|(.*?)\|(.*)\|?/g;
 		let modules = [];
+		let returnvalues = [];
 
 		for (let index = 2; index < arr.length; index++) {
 			arr[index].match(re).forEach((line) => {
@@ -70,18 +71,32 @@ var downloadModules = {
 				});
 			});
 		}
-		return modules;
+
+		returnvalues.push(modules);
+		returnvalues.push(categories);
+
+		return returnvalues;
 	},
 
 	getPackages: function () {
 		request.get(this.config.sourceUrl, (error, response, body) => {
 			if (!error && response.statusCode == 200) {
 				let modules = this.parseList(body);
-				var json = JSON.stringify(modules, undefined, 2);
+				var json = JSON.stringify(modules[0], undefined, 2);
+				var jsoncategories = JSON.stringify(modules[1], undefined, 2);
 				var jsonPath = this.config.modulesFile;
+				var jsonPathCategories = path.resolve(__dirname, "../categories.json");
 				fs.writeFile(jsonPath, json, "utf8", (err, data) => {
 					if (err) {
 						console.error("MODULE LIST ERROR: modules.json updating fail:" + err.message);
+						this.config.callback("ERROR_UPDATING");
+					} else {
+						this.config.callback("UPDATED");
+					}
+				});
+				fs.writeFile(jsonPathCategories, jsoncategories, "utf8", (err, data) => {
+					if (err) {
+						console.error("CATEGORIES LIST ERROR: categories.json updating fail:" + err.message);
 						this.config.callback("ERROR_UPDATING");
 					} else {
 						this.config.callback("UPDATED");
