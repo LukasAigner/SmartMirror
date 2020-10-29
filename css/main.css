@@ -40,26 +40,31 @@ body {
 
 .xsmall {
   font-size: 15px;
+
   line-height: 20px;
 }
 
 .small {
   font-size: 20px;
+
   line-height: 25px;
 }
 
 .medium {
   font-size: 30px;
+
   line-height: 35px;
 }
 
 .large {
   font-size: 65px;
+
   line-height: 65px;
 }
 
 .xlarge {
   font-size: 75px;
+
   line-height: 75px;
   letter-spacing: -3px;
 }

@@ -290,7 +290,7 @@ module.exports = NodeHelper.create(
 						return;
 					}
 
-					var sg = simpleGit(modulePath);
+					/*var sg = simpleGit(modulePath);
 					if (!isInList) {
 						sg.getRemotes(true, function (error, result) {
 							if (error) {
@@ -302,7 +302,7 @@ module.exports = NodeHelper.create(
 							// if cloned with ssh
 							currentModule.url = baseUrl.replace("git@", "https://");
 						});
-					}
+					}*/
 				}
 			},
 
@@ -312,6 +312,12 @@ module.exports = NodeHelper.create(
 					var statusCalls = [];
 					var elementsToChange = [];
 					installed.forEach((element) => {
+						if (element.longname === "MMM-Remote-Control") {
+							const index = installed.indexOf(element);
+							if (index > -1) {
+								installed.splice(index, 1);
+							}
+						}
 						let update = false;
 						let test;
 						var modulePath = this.configOnHd.paths.modules + "/" + element.longname;
@@ -349,6 +355,38 @@ module.exports = NodeHelper.create(
 							}
 							resolve();
 						});
+					});
+				});
+			},
+
+			gitLink: function (installed) {
+				return new Promise((resolve, reject) => {
+					var fetchCalls = [];
+					installed.forEach((element) => {
+						if (element.isDefaultModule == false) {
+							try {
+								var modulePath = this.configOnHd.paths.modules + "/" + element.longname;
+								var sg = simpleGitpromise(modulePath);
+								fetchCalls.push(
+									sg.getRemotes(true, function (error, result) {
+										if (error) {
+											console.log(error);
+										}
+										var baseUrl = result[0].refs.fetch;
+										// replacements
+										baseUrl = baseUrl.replace(".git", "").replace("github.com:", "github.com/");
+										// if cloned with ssh
+										currentModule.url = baseUrl.replace("git@", "https://");
+									})
+								);
+							} catch (err) {
+								console.log(err);
+								reject(err);
+							}
+						}
+					});
+					Promise.all(fetchCalls).then(() => {
+						resolve();
 					});
 				});
 			},
@@ -590,7 +628,11 @@ module.exports = NodeHelper.create(
 					installed.sort(function (a, b) {
 						return a.name.localeCompare(b.name);
 					});
-					this.sendResponse(res, undefined, { query: query, data: installed });
+					this.checkForUpdate(installed).then(() => {
+						this.gitLink(installed).then(() => {
+							this.sendResponse(res, undefined, { query: query, data: installed });
+						});
+					});
 					return;
 				}
 				if (query.data === "modulesInstalledPOST") {
@@ -644,7 +686,9 @@ module.exports = NodeHelper.create(
 					}
 
 					this.checkForUpdate(modulesreturn).then(() => {
-						this.sendResponse(res, undefined, { query: query, data: modulesreturn });
+						this.gitLink(modulesreturn).then(() => {
+							this.sendResponse(res, undefined, { query: query, data: modulesreturn });
+						});
 					});
 					return;
 				}

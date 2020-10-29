@@ -77,6 +77,11 @@ var Server = function (config, callback) {
 		}
 		html = html.replace("#CONFIG_FILE#", configFile);
 
+		res.removeHeader("x-frame-options");
+
+		//console.log(JSON.stringify(req.headers));
+		//console.log(res.getHeaders());
+
 		res.send(html);
 	});
 

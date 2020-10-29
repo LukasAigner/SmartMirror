@@ -8,6 +8,7 @@ const Class = require("./class.js");
 const Log = require("./logger.js");
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
 
 var NodeHelper = Class.extend({
 	init: function () {

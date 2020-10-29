@@ -368,6 +368,14 @@
 		"cat": "Finance"
 	},
 	{
+		"longname": "MMM-CurrencyArg",
+		"id": "consus2903/MMM-CurrencyArg",
+		"url": "https://github.com/consus2903/MMM-CurrencyArg",
+		"author": "consus2903",
+		"desc": "Display the dollar price in real time.",
+		"cat": "Finance"
+	},
+	{
 		"longname": "MMM-ethereum",
 		"id": "Deathrid3r747/MMM-ethereum",
 		"url": "https://github.com/Deathrid3r747/MMM-ethereum",
@@ -477,6 +485,14 @@
 		"url": "https://github.com/Helpi90/MMM-HLTV",
 		"author": "Helpi90",
 		"desc": "MagicMirror² module which will show CS:GO matches provided by HLTV",
+		"cat": "News / Religion / Information"
+	},
+	{
+		"longname": "MMM-JustForTodayMeditation",
+		"id": "LeftBrainCreated/MMM-JustForTodayMeditation",
+		"url": "https://github.com/LeftBrainCreated/MMM-JustForTodayMeditation",
+		"author": "LeftBrainCreated",
+		"desc": "Displays today's NA \"Just For Today\" Header",
 		"cat": "News / Religion / Information"
 	},
 	{
@@ -648,11 +664,27 @@
 		"cat": "Transport / Travel"
 	},
 	{
+		"longname": "MMM-Bluelinky",
+		"id": "Cyw00d/MMM-Bluelinky",
+		"url": "https://github.com/Cyw00d/MMM-Bluelinky",
+		"author": "<a href=\"https://github.com/Cyw00d\">Cyw00d</a>",
+		"desc": "Displays some of your Hyundai's data on your Mirror, the code is based on [MMM-Tesla2](https://github.com/martinburheimtingstad/MMM-Tesla2)",
+		"cat": "Transport / Travel"
+	},
+	{
 		"longname": "MMM-BMWConnected",
 		"id": "hdurdle/MMM-BMWConnected",
 		"url": "https://github.com/hdurdle/MMM-BMWConnected",
 		"author": "hdurdle",
 		"desc": "Displays information about your BMW from the BMW Connected Drive API.",
+		"cat": "Transport / Travel"
+	},
+	{
+		"longname": "MMM-Bixi",
+		"id": "nictruong/MMM-Bixi",
+		"url": "https://github.com/nictruong/MMM-Bixi",
+		"author": "Nicolas Truong",
+		"desc": "Displays the number of available bikes and electric bikes on any Bixi stations in Montreal",
 		"cat": "Transport / Travel"
 	},
 	{
@@ -933,6 +965,14 @@
 		"url": "https://github.com/Adman/MMM-imhdsk",
 		"author": "Adman",
 		"desc": "Display real-time estimations for public transport stops in Bratislava, Slovakia",
+		"cat": "Transport / Travel"
+	},
+	{
+		"longname": "MMM-idos",
+		"id": "soyrubio/MMM-idos",
+		"url": "https://github.com/soyrubio/MMM-idos",
+		"author": "soyrubio",
+		"desc": "Display estimated departures for public transport stops in the Czech Republic",
 		"cat": "Transport / Travel"
 	},
 	{
@@ -1645,14 +1685,6 @@
 		"url": "https://github.com/dolanmiu/MMM-awesome-alexa",
 		"author": "dolanmiu",
 		"desc": "Easy, hands free Amazon Alexa integration; activated, simply by saying \"Alexa\".",
-		"cat": "Voice Control"
-	},
-	{
-		"longname": "~~MMM-GoogleAssistant~~",
-		"id": "bugsounet/MMM-GoogleAssistant",
-		"url": "https://github.com/bugsounet/MMM-GoogleAssistant",
-		"author": "bugsounet",
-		"desc": "~~Google Assistant integration.~~ Actually not working with Original MagicMirror",
 		"cat": "Voice Control"
 	},
 	{
@@ -2568,6 +2600,14 @@
 		"cat": "Sports"
 	},
 	{
+		"longname": "next-train-transilien",
+		"id": "next-train-transilien/",
+		"url": "https://github.com/trizome/next-train-transilien/",
+		"author": "trizome",
+		"desc": "Next trains / RER transilien (SNCF) Ile-de-France from a station",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-Worldclock",
 		"id": "MMM-Worldclock/",
 		"url": "https://github.com/BKeyport/MMM-Worldclock/",
@@ -3424,6 +3464,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-MotionDisplay",
+		"id": "MMM-MotionDisplay/",
+		"url": "https://github.com/pjestico/MMM-MotionDisplay/",
+		"author": "PJestico",
+		"desc": "A module that displays motion detected by your security camera.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-MPR121",
 		"id": "PatriceG/MMM-MPR121",
 		"url": "https://github.com/PatriceG/MMM-MPR121",
@@ -3444,7 +3492,7 @@
 		"id": "sergge1/MMM-MQTTbridge",
 		"url": "https://github.com/sergge1/MMM-MQTTbridge",
 		"author": "sergge1",
-		"desc": "A simple MagicMirror module that subscribes to MQTT broker and read/send MQTT messages and MM Notifications. Allows you to integrate MM into smart home like Home Assistant. Powerfull automation with structured Noti and mqtt dictionaries rules (e.g. one mqtt message could trigger many predefined noti, and one mm-noti could trigger different predefined mqtt messages)",
+		"desc": "A powerful MagicMirror's module that subscribes to MQTT broker and read/send MQTT messages and MM Notifications with a lot of individual setup/rules. Allows you to integrate MM into smart home like Home Assistant. Powerful automation with structured Noti and MQTT dictionaries rules (e.g. one mqtt message could trigger many predefined noti, and one mm-noti could trigger different predefined mqtt messages)",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -3653,6 +3701,14 @@
 		"url": "https://github.com/joanaz/MMM-NoteTaker",
 		"author": "joanaz",
 		"desc": "Display your notes stored by Alexa skill [Note Taker](https://github.com/joanaz/AS-NoteTaker).",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-OneTracker",
+		"id": "seeshaughnessy/MMM-OneTracker",
+		"url": "https://github.com/seeshaughnessy/MMM-OneTracker",
+		"author": "seeshaughnessy",
+		"desc": "Use OneTracker app to deliveries/packages by forwarding from any email address!",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -5465,10 +5521,10 @@
 	},
 	{
 		"longname": "MMM-RandomPhoto",
-		"id": "diego-vieira/MMM-RandomPhoto",
-		"url": "https://github.com/diego-vieira/MMM-RandomPhoto",
-		"author": "diego-vieira",
-		"desc": "A module that will load a random photo from an URL.",
+		"id": "skuethe/MMM-RandomPhoto",
+		"url": "https://github.com/skuethe/MMM-RandomPhoto",
+		"author": "skuethe",
+		"desc": "A module that will load a random photo from picsum. Originally by diego-vieira, now with support for local paths and NextCloud shares",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5565,6 +5621,14 @@
 		"url": "https://github.com/CatoAntonsen/MMM-SpotifyConnectUI",
 		"author": "CatoAntonsen",
 		"desc": "Display information from Spotify Connect e.g. cover, artist and track information.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-Spotify",
+		"id": "skuethe/MMM-Spotify",
+		"url": "https://github.com/skuethe/MMM-Spotify",
+		"author": "skuethe",
+		"desc": "Spotify Controller - originally by eouia now with device and account switch buttons, easier volume change via touch and much more",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5992,6 +6056,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-MagicSuperHero",
+		"id": "Lavve/MMM-MagicSuperHero",
+		"url": "https://github.com/Lavve/MMM-MagicSuperHero",
+		"author": "Lavve",
+		"desc": "Shows super heroes on your MagicMirror²!",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-Nightscout",
 		"id": "bureus/MMM-Nightscout",
 		"url": "https://github.com/bureus/MMM-Nightscout",
@@ -6021,6 +6093,14 @@
 		"url": "https://github.com/bibaldo/MMM-COVID19",
 		"author": "bibaldo",
 		"desc": "Keep track of Corona Virus (COVID-19) cases via rapidapi API",
+		"cat": "Health"
+	},
+	{
+		"longname": "MMM-COVID19-AMPEL",
+		"id": "magic21nrw/MMM-COVID19-AMPEL",
+		"url": "https://github.com/magic21nrw/MMM-COVID19-AMPEL",
+		"author": "magic21nrw",
+		"desc": "German Ampel for Incidence Value for your City",
 		"cat": "Health"
 	},
 	{
