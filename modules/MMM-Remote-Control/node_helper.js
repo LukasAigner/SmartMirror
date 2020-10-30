@@ -696,6 +696,14 @@ module.exports = NodeHelper.create(
 					this.sendResponse(res, undefined, { query: query, data: this.translation });
 					return;
 				}
+				if (query.data === "electronValues") {
+					var config = this.getConfig();
+					var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
+					data = JSON.parse(data.toString());
+					var values = { zoom: config.zoom, width: data.width, height: data.height };
+					this.sendResponse(res, undefined, { query: query, data: values });
+					return;
+				}
 				if (query.data === "categories") {
 					self.updateModuleList();
 					fs.readFile(path.resolve(__dirname + "/categories.json"), (err, data) => {
@@ -865,6 +873,20 @@ module.exports = NodeHelper.create(
 				}
 				if (query.action === "REBOOT") {
 					exec("sudo shutdown -r now", opts, (error, stdout, stderr) => {
+						self.checkForExecError(error, stdout, stderr, res);
+					});
+					self.sendResponse(res);
+					return true;
+				}
+				if (query.action === "HORIZONTAL") {
+					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate normal", opts, (error, stdout, stderr) => {
+						self.checkForExecError(error, stdout, stderr, res);
+					});
+					self.sendResponse(res);
+					return true;
+				}
+				if (query.action === "VERTICAL") {
+					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate left", opts, (error, stdout, stderr) => {
 						self.checkForExecError(error, stdout, stderr, res);
 					});
 					self.sendResponse(res);

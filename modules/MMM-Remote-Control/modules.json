@@ -784,6 +784,14 @@
 		"cat": "Transport / Travel"
 	},
 	{
+		"longname": "MMM-DeLijn",
+		"id": "wouter-heerwegh/MMM-DeLijn",
+		"url": "https://github.com/wouter-heerwegh/MMM-DeLijn",
+		"author": "wouter-heerwegh",
+		"desc": "Retrieves live timings of busses for a specific bus stop",
+		"cat": "Transport / Travel"
+	},
+	{
 		"longname": "MMM-DVB",
 		"id": "skastenholz/MMM-DVB",
 		"url": "https://github.com/skastenholz/MMM-DVB",
@@ -3029,6 +3037,14 @@
 		"url": "https://github.com/yourdawi/MMM-FortniteStats",
 		"author": "Dawi",
 		"desc": "Module to display Fortnite Stats.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-AOE2-STATS",
+		"id": "FabianNiehaus89/MMM-AOE2-STATS",
+		"url": "https://github.com/FabianNiehaus89/MMM-AOE2-STATS",
+		"author": "Fabian Niehaus",
+		"desc": "Module to display Age of Empire stats by player ID",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{

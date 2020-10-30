@@ -3,6 +3,9 @@
 const electron = require("electron");
 const core = require("./app.js");
 const Log = require("./logger.js");
+const fs = require("fs");
+const path = require("path");
+const util = require("util");
 
 // Config
 var config = process.env.config ? JSON.parse(process.env.config) : {};
@@ -20,9 +23,13 @@ let mainWindow;
  */
 function createWindow() {
 	app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
+	//Disable Cache
+	app.commandLine.appendSwitch("disable-http-cache");
+	var data = fs.readFileSync(path.resolve(__dirname + "/../modules/MMM-Remote-Control/window.json"));
+	data = JSON.parse(data.toString());
 	var electronOptionsDefaults = {
-		width: 800,
-		height: 600,
+		width: data.width,
+		height: data.height,
 		x: 0,
 		y: 0,
 		darkTheme: true,
@@ -92,6 +99,13 @@ function createWindow() {
 app.on("ready", function () {
 	Log.log("Launching application.");
 	createWindow();
+
+	var values = mainWindow.getSize();
+
+	var valuestowrite = { width: values[0], height: values[1] };
+
+	var windowPath = path.resolve(__dirname + "/../modules/MMM-Remote-Control/window.json");
+	fs.writeFileSync(windowPath, JSON.stringify(valuestowrite));
 });
 
 // Quit when all windows are closed.

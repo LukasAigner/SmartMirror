@@ -136,7 +136,7 @@ module.exports = {
 			res.json({ success: true });
 		});
 
-		this.expressRouter.route(["/modules", "/modules/installed", "/modules/available", "/brightness", "/translations", "/mmUpdateAvailable", "/config", "/categories"]).get((req, res) => {
+		this.expressRouter.route(["/modules", "/modules/installed", "/modules/available", "/brightness", "/translations", "/mmUpdateAvailable", "/config", "/categories", "/electronValues"]).get((req, res) => {
 			let r = req.path.substring(1);
 			r = r.replace(/\/([a-z])/, function (v) {
 				return v.substring(1).toUpperCase();
@@ -144,7 +144,7 @@ module.exports = {
 			self.answerGet({ data: r }, req, res);
 		});
 
-		this.expressRouter.route(["/refresh", "/save", "/shutdown", "/reboot", "/restart", "/minimize", "/togglefullscreen", "/devtools"]).get((req, res) => {
+		this.expressRouter.route(["/refresh", "/save", "/shutdown", "/reboot", "/restart", "/minimize", "/togglefullscreen", "/devtools", "/horizontal", "/vertical"]).get((req, res) => {
 			let r = req.path.substring(1).toUpperCase();
 			self.executeQuery({ action: r }, res);
 		});
