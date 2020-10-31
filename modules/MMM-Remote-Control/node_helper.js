@@ -882,14 +882,28 @@ module.exports = NodeHelper.create(
 					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate normal", opts, (error, stdout, stderr) => {
 						self.checkForExecError(error, stdout, stderr, res);
 					});
-					self.sendResponse(res);
+					var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
+					data = JSON.parse(data.toString());
+					if (data.width < data.height) {
+						let cache = data.width;
+						data.width = data.height;
+						data.height = cache;
+					}
+					fs.writeFileSync(path.resolve(__dirname + "/window.json"), JSON.stringify(data));
 					return true;
 				}
 				if (query.action === "VERTICAL") {
 					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate left", opts, (error, stdout, stderr) => {
 						self.checkForExecError(error, stdout, stderr, res);
 					});
-					self.sendResponse(res);
+					var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
+					data = JSON.parse(data.toString());
+					if (data.width > data.height) {
+						let cache = data.width;
+						data.width = data.height;
+						data.height = cache;
+					}
+					fs.writeFileSync(path.resolve(__dirname + "/window.json"), JSON.stringify(data));
 					return true;
 				}
 				if (query.action === "RESTART") {
