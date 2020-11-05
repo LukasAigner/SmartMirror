@@ -1664,6 +1664,14 @@
 		"cat": "Transport / Travel"
 	},
 	{
+		"longname": "MMM-SG-Transport-V2",
+		"id": "mosesyong/MMM-SG-Transport-V2",
+		"url": "https://github.com/mosesyong/MMM-SG-Transport-V2",
+		"author": "mosesyong",
+		"desc": "Display bus transport info in Singapore",
+		"cat": "Transport / Travel"
+	},
+	{
 		"longname": "MMM-Alexa",
 		"id": "sakirtemel/MMM-alexa",
 		"url": "https://github.com/sakirtemel/MMM-alexa",
@@ -2301,6 +2309,14 @@
 		"url": "https://github.com/Santanachia/MMM-SmokedMirror",
 		"author": "Santanachia",
 		"desc": "Air pollution in Polish cities.",
+		"cat": "Weather"
+	},
+	{
+		"longname": "MMM-SwissLakeTemperature",
+		"id": "roufri/MMM-SwissLakeTemperature",
+		"url": "https://github.com/roufri/MMM-SwissLakeTemperature",
+		"author": "roufri",
+		"desc": "Display the water temperature of a Swiss lake at a given point.",
 		"cat": "Weather"
 	},
 	{

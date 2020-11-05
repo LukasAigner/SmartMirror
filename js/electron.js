@@ -6,6 +6,7 @@ const Log = require("./logger.js");
 const fs = require("fs");
 const path = require("path");
 const util = require("util");
+const preloader = require("./preload.js");
 
 // Config
 var config = process.env.config ? JSON.parse(process.env.config) : {};
@@ -23,8 +24,6 @@ let mainWindow;
  */
 function createWindow() {
 	app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
-	//Disable Cache
-	app.commandLine.appendSwitch("disable-http-cache");
 	var data = fs.readFileSync(path.resolve(__dirname + "/../modules/MMM-Remote-Control/window.json"));
 	data = JSON.parse(data.toString());
 	var electronOptionsDefaults = {
@@ -34,8 +33,9 @@ function createWindow() {
 		y: 0,
 		darkTheme: true,
 		webPreferences: {
-			nodeIntegration: false,
-			zoomFactor: config.zoom
+			nodeIntegration: true,
+			zoomFactor: 1,
+			preload: path.resolve(path.join(__dirname, "/preload.js"))
 		},
 		backgroundColor: "#000000"
 	};
@@ -72,7 +72,7 @@ function createWindow() {
 		mainWindow.webContents.openDevTools();
 	}
 
-	// Set responders for window events.
+	// Set responders for window events
 	mainWindow.on("closed", function () {
 		mainWindow = null;
 	});
@@ -102,10 +102,16 @@ app.on("ready", function () {
 
 	var values = mainWindow.getSize();
 
-	var valuestowrite = { width: values[0], height: values[1] };
+	var data = fs.readFileSync(path.resolve(__dirname + "/../modules/MMM-Remote-Control/window.json"));
+
+	data = JSON.parse(data.toString());
+
+	data.width = values[0];
+
+	data.height = values[1];
 
 	var windowPath = path.resolve(__dirname + "/../modules/MMM-Remote-Control/window.json");
-	fs.writeFileSync(windowPath, JSON.stringify(valuestowrite));
+	fs.writeFileSync(windowPath, JSON.stringify(data));
 });
 
 // Quit when all windows are closed.

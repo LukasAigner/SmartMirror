@@ -747,12 +747,10 @@ module.exports = NodeHelper.create(
 					return;
 				}
 				if (query.data === "brightness") {
-					if (!this.checkInititialized(res)) {
-						return;
-					}
-					this.callAfterUpdate(() => {
-						this.sendResponse(res, undefined, { query: query, result: self.configData.brightness });
-					});
+					var brightpath = path.resolve(__dirname + "/../../css/brightness.css");
+					var data = fs.readFileSync(brightpath, { encoding: "utf8", flag: "r" });
+					var brightness = data.substring(data.indexOf("(") + 1, data.indexOf("%"));
+					this.sendResponse(res, undefined, { query: query, data: brightness });
 					return;
 				}
 				if (query.data === "userPresence") {
@@ -944,8 +942,11 @@ module.exports = NodeHelper.create(
 					return true;
 				}
 				if (query.action === "BRIGHTNESS") {
+					var brightpath = path.resolve(__dirname + "/../../css/brightness.css");
+					var data = "html{" + "filter: brightness(" + query.value + "%);}";
+					fs.writeFileSync(brightpath, data);
+					self.sendSocketNotification("REFRESH");
 					self.sendResponse(res);
-					self.sendSocketNotification(query.action, query.value);
 					return true;
 				}
 				if (query.action === "SAVE") {
