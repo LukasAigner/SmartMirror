@@ -54,6 +54,12 @@ module.exports = NodeHelper.create(
 					self.template = data.toString();
 				});
 
+				var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
+				data = JSON.parse(data.toString());
+				if (data.width < data.height) {
+					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate left", (error, stdout, stderr) => {});
+				}
+
 				this.combineConfig();
 				this.updateModuleList();
 				this.createRoutes();
@@ -697,10 +703,9 @@ module.exports = NodeHelper.create(
 					return;
 				}
 				if (query.data === "electronValues") {
-					var config = this.getConfig();
 					var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
 					data = JSON.parse(data.toString());
-					var values = { zoom: config.zoom, width: data.width, height: data.height };
+					var values = { zoom: data.zoom, width: data.width, height: data.height };
 					this.sendResponse(res, undefined, { query: query, data: values });
 					return;
 				}

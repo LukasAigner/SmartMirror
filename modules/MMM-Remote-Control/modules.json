@@ -1324,7 +1324,7 @@
 		"id": "CatoAntonsen/MMM-Ruter",
 		"url": "https://github.com/CatoAntonsen/MMM-Ruter",
 		"author": "CatoAntonsen",
-		"desc": "Display public transport information for Oslo and Akershus in Norway",
+		"desc": "Display public transport information for Oslo and Akershus in Norway. Abandoned - see [MMM-Entur-tavle](https://github.com/Arve/MMM-Entur-tavle) instead.",
 		"cat": "Transport / Travel"
 	},
 	{
@@ -2840,6 +2840,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-BME280",
+		"id": "awitwicki/MMM-BME280",
+		"url": "https://github.com/awitwicki/MMM-BME280",
+		"author": "awitwicki",
+		"desc": "Display temperature, humidity, and pressure readings from BME280 I2C sensor",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-CalendarExt",
 		"id": "eouia/MMM-CalendarExt",
 		"url": "https://github.com/eouia/MMM-CalendarExt",
@@ -3632,6 +3640,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-ObjectBlocks",
+		"id": "jimmykh/MMM-ObjectBlocks",
+		"url": "https://github.com/jimmykh/MMM-ObjectBlocks",
+		"author": "jimmykh",
+		"desc": "Module to talk to Arduino two-way via web-socket and ObjectBlocks platform.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-RecyclingCalendar",
 		"id": "FatTony123/MMM-RecyclingCalendar",
 		"url": "https://github.com/FatTony123/MMM-RecyclingCalendar",
@@ -3760,6 +3776,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-OpenHAB-Items",
+		"id": "hggh/MMM-OpenHAB-Items",
+		"url": "https://github.com/hggh/MMM-OpenHAB-Items",
+		"author": "hggh",
+		"desc": "Show OpenHAB Items (label, values) in a list. Also supports touchscreen to toggle Switches or use RollerShutter items.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-OpenSprinkler",
 		"id": "johnny-co/MMM-OpenSprinkler",
 		"url": "https://github.com/johnny-co/MMM-OpenSprinkler",
@@ -3877,6 +3901,14 @@
 		"url": "https://github.com/ckoutavas/MMM-PiTemp",
 		"author": "ckoutavas",
 		"desc": "MMM-PiTemp works in conjunction with MagicMirror2 and tells you the temperature of your raspberry pi's CPU. If the temperature is ever greater than 85 degrees then the pi shuts down.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-Plantower",
+		"id": "gimdh/MMM-Plantower",
+		"url": "https://github.com/gimdh/MMM-Plantower",
+		"author": "gimdh",
+		"desc": "Displays air quality readings from Plantower PMSx003 series sensors",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -4680,6 +4712,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-APOD",
+		"id": "grenagit/MMM-APOD",
+		"url": "https://github.com/grenagit/MMM-APOD",
+		"author": "Grena",
+		"desc": "A Magic Mirror Module displaying the last Astronomy Picture Of the Day (APOD). This is an evolution of MMM-nasaastropic : supports image and video and display title, description and copyright.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-Astrology",
 		"id": "cowboysdude/MMM-Astrology",
 		"url": "https://github.com/cowboysdude/MMM-Astrology",
@@ -4840,6 +4880,22 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-CountUP",
+		"id": "bibaldo/MMM-CountUP",
+		"url": "https://github.com/bibaldo/MMM-CountUP",
+		"author": "bibaldo",
+		"desc": "Shows a progressive counter from a specific date.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-Cronixie",
+		"id": "timophey/MMM-Cronixie",
+		"url": "https://github.com/timophey/MMM-Cronixie",
+		"author": "timophey",
+		"desc": "Virtual model of physical Cronixie (Led Nixie) clock",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-CyanideHappiness",
 		"id": "werthdavid/MMM-CyanideHappiness",
 		"url": "https://github.com/werthdavid/MMM-CyanideHappiness",
@@ -4861,6 +4917,14 @@
 		"url": "https://github.com/andrecarlucci/MMM-DailyDilbert",
 		"author": "andrecarlucci",
 		"desc": "Displays the daily Dilbert strip.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-DateOnly",
+		"id": "grabenhenrich/MMM-DateOnly",
+		"url": "https://github.com/grabenhenrich/MMM-DateOnly",
+		"author": "grabenhenrich",
+		"desc": "Shows the date without a clock (if you have one in another place).",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -4984,6 +5048,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-Faceit",
+		"id": "BastijnKostense/MMM-Faceit",
+		"url": "https://github.com/BastijnKostense/MMM-Faceit",
+		"author": "BastijnKostense",
+		"desc": "Simple module for displaying some basic FACEIT information for CS:GO players.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-Face-Reco-DNN",
 		"id": "nischi/MMM-Face-Reco-DNN",
 		"url": "https://github.com/nischi/MMM-Face-Reco-DNN",
@@ -5021,6 +5093,14 @@
 		"url": "http://bit.ly/MMM-Flickr",
 		"author": "kapsolas",
 		"desc": "A module to load last 20 images posted to user's Flickr photostream to mirror and animate them; with the need of an API_KEY",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-food2fork-recipes",
+		"id": "spectroman/mmm-food2fork-recipes",
+		"url": "https://github.com/spectroman/mmm-food2fork-recipes",
+		"author": "Spectroman",
+		"desc": "Fetches one recipe type per day from food2fork API and display as a small menu.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5093,6 +5173,14 @@
 		"url": "https://github.com/justjim1220/MMM-HolidayLights",
 		"author": "justjim1220",
 		"desc": "Modified from cowboydude's MMM-Xmas for different holidays, events, et.al.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-horoscope",
+		"id": "morozgrafix/MMM-horoscope",
+		"url": "https://github.com/morozgrafix/MMM-horoscope",
+		"author": "MMM-horoscope",
+		"desc": "Displays Daily Horoscope.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5232,11 +5320,27 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-jokes",
+		"id": "pvyParts/MMM-jokes",
+		"url": "https://github.com/pvyParts/MMM-jokes",
+		"author": "pvyParts",
+		"desc": "A module to load random jokes from the web.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-KudaGo",
 		"id": "polarbearjngl/MMM-KudaGo",
 		"url": "https://github.com/polarbearjngl/MMM-KudaGo",
 		"author": "polarbearjngl",
 		"desc": "Can show upcoming events (concerts, theater plays, exhibitions and etc.), that collected from [KudaGo](https://kudago.com/).",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-kudos",
+		"id": "thomo/MMM-kudos",
+		"url": "https://github.com/thomo/MMM-kudos",
+		"author": "thomo",
+		"desc": "Compliment clone - allows to define when (at which hour) the used kudo(compliment) subset will change and you can define further subsets - up to one for each hour.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5253,6 +5357,14 @@
 		"url": "https://github.com/thekampany/MMM-learnlanguage",
 		"author": "theKampany",
 		"desc": "Learn a (new foreign language) word every time you look in the mirror.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-lichess-daily",
+		"id": "tonymorris/MMM-lichess-daily",
+		"url": "https://github.com/tonymorris/MMM-lichess-daily",
+		"author": "tonymorris",
+		"desc": "The lichess.org daily puzzle",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5277,6 +5389,14 @@
 		"url": "https://github.com/mykle1/MMM-Lunartic",
 		"author": "Mykle1",
 		"desc": "Up to the minute information about our Lunar partner, with a splash of EyeCandy, to boot!",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-MagicSuperHero",
+		"id": "Lavve/MMM-MagicSuperHero",
+		"url": "https://github.com/Lavve/MMM-MagicSuperHero",
+		"author": "Lavve",
+		"desc": "Shows super heroes on your MagicMirror²!",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5360,14 +5480,6 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
-		"longname": "MMM-slamfm-playing-now",
-		"id": "ngnijland/MMM-slamfm-playing-now",
-		"url": "https://github.com/ngnijland/MMM-slamfm-playing-now",
-		"author": "ngnijland",
-		"desc": "Show what's currently playing now on the dutch radio station Slam!.",
-		"cat": "Entertainment / Misc"
-	},
-	{
 		"longname": "MMM-buxxi/MMM-MPRIS2-WebSocket",
 		"id": "buxxi/MMM-MPRIS2-WebSocket",
 		"url": "https://github.com/buxxi/MMM-MPRIS2-WebSocket",
@@ -5408,22 +5520,6 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
-		"longname": "MMM-Nixie-Clock",
-		"id": "nikobix/MMM-Nixie-Clock",
-		"url": "https://github.com/nikobix/MMM-Nixie-Clock",
-		"author": "Nikobix",
-		"desc": "Simple virtual Nixie Clock",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-NEO",
-		"id": "mykle1/MMM-NEO",
-		"url": "https://github.com/mykle1/MMM-NEO",
-		"author": "Mykle1",
-		"desc": "Near Earth Objects passing by our planet this week. Be afraid. Be VERY afraid!",
-		"cat": "Entertainment / Misc"
-	},
-	{
 		"longname": "MMM-NameDay",
 		"id": "RichieCZ/MMM-NameDay",
 		"url": "https://github.com/RichieCZ/MMM-NameDay",
@@ -5440,11 +5536,35 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-nasaastropic",
+		"id": "nebulx29/MMM-nasaastropic",
+		"url": "https://github.com/nebulx29/MMM-nasaastropic",
+		"author": "nebulx29",
+		"desc": "A Magic Mirror Module displaying NASA's astronomy picture of the day.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-NatureCalendar",
 		"id": "mykle1/MMM-NatureCalendar",
 		"url": "https://github.com/mykle1/MMM-NatureCalendar",
 		"author": "Mykle1",
 		"desc": "Simple calendar. Optional Rotating Nature Scenes. Optional color schemes. 17 different languages.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-NEO",
+		"id": "mykle1/MMM-NEO",
+		"url": "https://github.com/mykle1/MMM-NEO",
+		"author": "Mykle1",
+		"desc": "Near Earth Objects passing by our planet this week. Be afraid. Be VERY afraid!",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-Nixie-Clock",
+		"id": "nikobix/MMM-Nixie-Clock",
+		"url": "https://github.com/nikobix/MMM-Nixie-Clock",
+		"author": "Nikobix",
+		"desc": "Simple virtual Nixie Clock",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5584,6 +5704,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-Reddito",
+		"id": "bittiez/MMM-Reddito",
+		"url": "https://github.com/bittiez/MMM-Reddito",
+		"author": "bittiez",
+		"desc": "Shows specified subreddits(Text only), can have multiple instances.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-Rijks",
 		"id": "eouia/MMM-Rijks",
 		"url": "https://github.com/eouia/MMM-Rijks",
@@ -5605,14 +5733,6 @@
 		"url": "https://github.com/mykle1/MMM-SearchLight",
 		"author": "Mykle1",
 		"desc": "Screensaver for your MagicMirror",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-SORT",
-		"id": "mykle1/MMM-SORT",
-		"url": "https://github.com/mykle1/MMM-SORT",
-		"author": "Mykle1",
-		"desc": "Static Or Rotating Tides module. Replaces/combines MMM-SimpleTides and MMM-StaticTides.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5640,11 +5760,51 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-SimpleText",
+		"id": "SaltyRiver/MMM-SimpleText",
+		"url": "https://github.com/SaltyRiver/MMM-SimpleText",
+		"author": "SaltyRiver",
+		"desc": "Simple and plain text module with some minor formatting options.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-slamfm-playing-now",
+		"id": "ngnijland/MMM-slamfm-playing-now",
+		"url": "https://github.com/ngnijland/MMM-slamfm-playing-now",
+		"author": "ngnijland",
+		"desc": "Show what's currently playing now on the dutch radio station Slam!.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-Snow",
 		"id": "MichMich/MMM-Snow",
 		"url": "https://github.com/MichMich/MMM-Snow",
 		"author": "MichMich",
 		"desc": "More realistic snow plugin to improve your winter experience",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-SolarPicture",
+		"id": "grenagit/MMM-SolarPicture",
+		"url": "https://github.com/grenagit/MMM-SolarPicture",
+		"author": "Grena",
+		"desc": "A Magic Mirror Module displaying the last Solar Dynamics Observatory (SDO) picture.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-SORT",
+		"id": "mykle1/MMM-SORT",
+		"url": "https://github.com/mykle1/MMM-SORT",
+		"author": "Mykle1",
+		"desc": "Static Or Rotating Tides module. Replaces/combines MMM-SimpleTides and MMM-StaticTides.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-Space",
+		"id": "grabenhenrich/MMM-Space",
+		"url": "https://github.com/grabenhenrich/MMM-Space",
+		"author": "grabenhenrich",
+		"desc": "Adds vertical space (as HTML div) between modules.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5701,6 +5861,14 @@
 		"url": "https://github.com/retroflex/MMM-TextPerWeek",
 		"author": "retroflex",
 		"desc": "Shows a different text each week.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-TimeTreeEvent",
+		"id": "sabo10o29/MMM-TimeTreeEvent",
+		"url": "https://github.com/sabo10o29/MMM-TimeTreeEvent",
+		"author": "sabo10o29",
+		"desc": "Shows your TimeTree event on your magic mirror.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5800,46 +5968,6 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
-		"longname": "MMM-food2fork-recipes",
-		"id": "spectroman/mmm-food2fork-recipes",
-		"url": "https://github.com/spectroman/mmm-food2fork-recipes",
-		"author": "Spectroman",
-		"desc": "Fetches one recipe type per day from food2fork API and display as a small menu.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-horoscope",
-		"id": "morozgrafix/MMM-horoscope",
-		"url": "https://github.com/morozgrafix/MMM-horoscope",
-		"author": "MMM-horoscope",
-		"desc": "Displays Daily Horoscope.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-jokes",
-		"id": "pvyParts/MMM-jokes",
-		"url": "https://github.com/pvyParts/MMM-jokes",
-		"author": "pvyParts",
-		"desc": "A module to load random jokes from the web.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-kudos",
-		"id": "thomo/MMM-kudos",
-		"url": "https://github.com/thomo/MMM-kudos",
-		"author": "thomo",
-		"desc": "Compliment clone - allows to define when (at which hour) the used kudo(compliment) subset will change and you can define further subsets - up to one for each hour.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-lichess-daily",
-		"id": "tonymorris/MMM-lichess-daily",
-		"url": "https://github.com/tonymorris/MMM-lichess-daily",
-		"author": "tonymorris",
-		"desc": "The lichess.org daily puzzle",
-		"cat": "Entertainment / Misc"
-	},
-	{
 		"longname": "MMM-moon-phases",
 		"id": "spectroman/mmm-moon-phases",
 		"url": "https://github.com/spectroman/mmm-moon-phases",
@@ -5853,30 +5981,6 @@
 		"url": "https://github.com/ThePirateWhoSmellsOfSunflowers/MMM-mumble",
 		"author": "TPWSOS",
 		"desc": "Display users currently connected on the mumble server (murmur).",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-SolarPicture",
-		"id": "grenagit/MMM-SolarPicture",
-		"url": "https://github.com/grenagit/MMM-SolarPicture",
-		"author": "Grena",
-		"desc": "A Magic Mirror Module displaying the last Solar Dynamics Observatory (SDO) picture.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-APOD",
-		"id": "grenagit/MMM-APOD",
-		"url": "https://github.com/grenagit/MMM-APOD",
-		"author": "Grena",
-		"desc": "A Magic Mirror Module displaying the last Astronomy Picture Of the Day (APOD). This is an evolution of MMM-nasaastropic : supports image and video and display title, description and copyright.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-nasaastropic",
-		"id": "nebulx29/MMM-nasaastropic",
-		"url": "https://github.com/nebulx29/MMM-nasaastropic",
-		"author": "nebulx29",
-		"desc": "A Magic Mirror Module displaying NASA's astronomy picture of the day.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -5984,30 +6088,6 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
-		"longname": "MMM-Space",
-		"id": "grabenhenrich/MMM-Space",
-		"url": "https://github.com/grabenhenrich/MMM-Space",
-		"author": "grabenhenrich",
-		"desc": "Adds vertical space (as HTML div) between modules.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-DateOnly",
-		"id": "grabenhenrich/MMM-DateOnly",
-		"url": "https://github.com/grabenhenrich/MMM-DateOnly",
-		"author": "grabenhenrich",
-		"desc": "Shows the date without a clock (if you have one in another place).",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-Reddito",
-		"id": "bittiez/MMM-Reddito",
-		"url": "https://github.com/bittiez/MMM-Reddito",
-		"author": "bittiez",
-		"desc": "Shows specified subreddits(Text only), can have multiple instances.",
-		"cat": "Entertainment / Misc"
-	},
-	{
 		"longname": "MMM-WordOfTheDay",
 		"id": "bittiez/MMM-MWWordOfTheDay",
 		"url": "https://github.com/bittiez/MMM-MWWordOfTheDay",
@@ -6021,22 +6101,6 @@
 		"url": "https://github.com/mattileh/MMM-FunnyHolidays",
 		"author": "Mattileh",
 		"desc": "Shows Today's and Tomorrow's \"funny\"holidays around world (datasource www.webcal.fi).",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-TimeTreeEvent",
-		"id": "sabo10o29/MMM-TimeTreeEvent",
-		"url": "https://github.com/sabo10o29/MMM-TimeTreeEvent",
-		"author": "sabo10o29",
-		"desc": "Shows your TimeTree event on your magic mirror.",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-CountUP",
-		"id": "bibaldo/MMM-CountUP",
-		"url": "https://github.com/bibaldo/MMM-CountUP",
-		"author": "bibaldo",
-		"desc": "Shows a progressive counter from a specific date.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -6064,36 +6128,28 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
-		"longname": "MMM-SimpleText",
-		"id": "SaltyRiver/MMM-SimpleText",
-		"url": "https://github.com/SaltyRiver/MMM-SimpleText",
-		"author": "SaltyRiver",
-		"desc": "Simple and plain text module with some minor formatting options.",
-		"cat": "Entertainment / Misc"
+		"longname": "MMM-COVID19",
+		"id": "bibaldo/MMM-COVID19",
+		"url": "https://github.com/bibaldo/MMM-COVID19",
+		"author": "bibaldo",
+		"desc": "Keep track of Corona Virus (COVID-19) cases via rapidapi API",
+		"cat": "Health"
 	},
 	{
-		"longname": "MMM-Faceit",
-		"id": "BastijnKostense/MMM-Faceit",
-		"url": "https://github.com/BastijnKostense/MMM-Faceit",
-		"author": "BastijnKostense",
-		"desc": "Simple module for displaying some basic FACEIT information for CS:GO players.",
-		"cat": "Entertainment / Misc"
+		"longname": "MMM-COVID19-AMPEL",
+		"id": "magic21nrw/MMM-COVID19-AMPEL",
+		"url": "https://github.com/magic21nrw/MMM-COVID19-AMPEL",
+		"author": "magic21nrw",
+		"desc": "German Ampel for Incidence Value for your City",
+		"cat": "Health"
 	},
 	{
-		"longname": "MMM-Cronixie",
-		"id": "timophey/MMM-Cronixie",
-		"url": "https://github.com/timophey/MMM-Cronixie",
-		"author": "timophey",
-		"desc": "Virtual model of physical Cronixie (Led Nixie) clock",
-		"cat": "Entertainment / Misc"
-	},
-	{
-		"longname": "MMM-MagicSuperHero",
-		"id": "Lavve/MMM-MagicSuperHero",
-		"url": "https://github.com/Lavve/MMM-MagicSuperHero",
-		"author": "Lavve",
-		"desc": "Shows super heroes on your MagicMirror²!",
-		"cat": "Entertainment / Misc"
+		"longname": "MMM-covid19",
+		"id": "0m4r/MMM-covid19",
+		"url": "https://github.com/0m4r/MMM-covid19",
+		"author": "0m4r",
+		"desc": "Live covid19 numbers provided via https://covid19api.com/",
+		"cat": "Health"
 	},
 	{
 		"longname": "MMM-Nightscout",
@@ -6112,35 +6168,19 @@
 		"cat": "Health"
 	},
 	{
-		"longname": "MMM-SugarValue",
-		"id": "balharrie/MMM-SugarValue",
-		"url": "https://github.com/balharrie/MMM-SugarValue",
-		"author": "balharrie",
-		"desc": "Displays last reading from your Dexcom G6 via the share API",
-		"cat": "Health"
-	},
-	{
-		"longname": "MMM-COVID19",
-		"id": "bibaldo/MMM-COVID19",
-		"url": "https://github.com/bibaldo/MMM-COVID19",
-		"author": "bibaldo",
-		"desc": "Keep track of Corona Virus (COVID-19) cases via rapidapi API",
-		"cat": "Health"
-	},
-	{
-		"longname": "MMM-COVID19-AMPEL",
-		"id": "magic21nrw/MMM-COVID19-AMPEL",
-		"url": "https://github.com/magic21nrw/MMM-COVID19-AMPEL",
-		"author": "magic21nrw",
-		"desc": "German Ampel for Incidence Value for your City",
-		"cat": "Health"
-	},
-	{
 		"longname": "MMM-Pregnancy",
 		"id": "bibaldo/MMM-Pregnancy",
 		"url": "https://github.com/bibaldo/MMM-Pregnancy",
 		"author": "bibaldo",
 		"desc": "Allows you to get instant info of your developing pregnancy",
+		"cat": "Health"
+	},
+	{
+		"longname": "MMM-SugarValue",
+		"id": "balharrie/MMM-SugarValue",
+		"url": "https://github.com/balharrie/MMM-SugarValue",
+		"author": "balharrie",
+		"desc": "Displays last reading from your Dexcom G6 via the share API",
 		"cat": "Health"
 	}
 ]
