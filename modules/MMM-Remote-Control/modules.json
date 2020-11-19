@@ -4736,6 +4736,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-AvfallshentingOslo",
+		"id": "blixhavn/MMM-AvfallshentingOslo",
+		"url": "https://github.com/blixhavn/MMM-AvfallshentingOslo",
+		"author": "Blixhavn",
+		"desc": "A module to show the next waste pickup dates for any address in Oslo, Norway",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-BinaryClock",
 		"id": "nikobix/MMM-BinaryClock",
 		"url": "https://github.com/nikobix/MMM-BinaryClock",

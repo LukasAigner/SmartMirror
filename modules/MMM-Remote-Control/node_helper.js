@@ -452,6 +452,7 @@ module.exports = NodeHelper.create(
 			},
 
 			getConfig: function () {
+				this.combineConfig();
 				var config = this.configOnHd;
 				for (let i = 0; i < config.modules.length; i++) {
 					var current = config.modules[i];
@@ -676,7 +677,7 @@ module.exports = NodeHelper.create(
 
 					let config = this.getConfig();
 
-					for (let index = 0; index < modulesreturn.length; index++) {
+					/*for (let index = 0; index < modulesreturn.length; index++) {
 						const pos = config.modules.findIndex((i) => i.module === modulesreturn[index].longname);
 						if (pos !== -1) {
 							modulesreturn[index].isActiv = true;
@@ -688,6 +689,18 @@ module.exports = NodeHelper.create(
 						} else {
 							modulesreturn[index].isActiv = false;
 							modulesreturn[index].displayed = false;
+						}
+					}*/
+
+					for (let index = 0; index < modulesreturn.length; index++) {
+						modulesreturn[index].displayed = false;
+					}
+
+					var position = config.modules.findIndex((i) => i.module === "MMM-Carousel");
+					for (var key of Object.keys(config.modules[position].config.slides)) {
+						for (let index = 0; index < config.modules[position].config.slides[key].length; index++) {
+							const pos = modulesreturn.findIndex((i) => i.longname === config.modules[position].config.slides[key][index].name);
+							modulesreturn[pos].displayed = true;
 						}
 					}
 
