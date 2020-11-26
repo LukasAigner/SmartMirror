@@ -320,7 +320,15 @@ module.exports = NodeHelper.create(
 						if (element.longname === "MMM-Remote-Control") {
 							const index = installed.indexOf(element);
 							if (index > -1) {
-								installed.splice(index, 1);
+								//installed.splice(index, 1);
+								element.isDefaultModule = true;
+							}
+						}
+						if (element.longname === "MMM-Carousel") {
+							const index = installed.indexOf(element);
+							if (index > -1) {
+								//installed.splice(index, 1);
+								element.isDefaultModule = true;
 							}
 						}
 						let update = false;
@@ -703,7 +711,9 @@ module.exports = NodeHelper.create(
 					for (var key of Object.keys(config.modules[position].config.slides)) {
 						for (let index = 0; index < config.modules[position].config.slides[key].length; index++) {
 							const pos = modulesreturn.findIndex((i) => i.longname === config.modules[position].config.slides[key][index].name);
-							modulesreturn[pos].displayed = true;
+							if (pos >= 0 && pos < modulesreturn.length && pos) {
+								modulesreturn[pos].displayed = true;
+							}
 						}
 					}
 
