@@ -167,7 +167,6 @@ module.exports = NodeHelper.create(
 						if (result && result.startsWith("ERROR")) {
 							console.error(result);
 						}
-						this.readModuleData();
 					}
 				});
 			},
@@ -579,6 +578,7 @@ module.exports = NodeHelper.create(
 
 				if (query.data === "modulesAvailable") {
 					self.updateModuleList();
+					self.readModuleData();
 					this.modulesAvailable.sort(function (a, b) {
 						return a.name.localeCompare(b.name);
 					});
@@ -587,6 +587,7 @@ module.exports = NodeHelper.create(
 				}
 				if (query.data === "modulesAvailablePOST") {
 					self.updateModuleList();
+					self.readModuleData();
 					let modulesreturntemp = [];
 					let modulesreturn = [];
 					if (req.body.cat) {
@@ -628,6 +629,7 @@ module.exports = NodeHelper.create(
 				}
 				if (query.data === "modulesInstalled") {
 					self.updateModuleList();
+					self.readModuleData();
 					var filterInstalled = function (value) {
 						return value.installed;
 					};
@@ -644,6 +646,7 @@ module.exports = NodeHelper.create(
 				}
 				if (query.data === "modulesInstalledPOST") {
 					self.updateModuleList();
+					self.readModuleData();
 					let modulesreturntemp = [];
 					let modulesreturn = [];
 					var filterInstalled = function (value) {
@@ -724,6 +727,7 @@ module.exports = NodeHelper.create(
 				}
 				if (query.data === "categories") {
 					self.updateModuleList();
+					self.readModuleData();
 					fs.readFile(path.resolve(__dirname + "/categories.json"), (err, data) => {
 						let categories = JSON.parse(data.toString());
 						this.sendResponse(res, undefined, { query: query, data: categories });
@@ -1130,9 +1134,10 @@ module.exports = NodeHelper.create(
 				});
 			},
 
-			deleteModule: function (module, res) {
+			deleteModule: function (module, res, req) {
 				var self = this;
 				self.updateModuleList();
+				self.readModuleData();
 				var filterInstalled = function (value) {
 					return value.installed;
 				};
@@ -1150,7 +1155,72 @@ module.exports = NodeHelper.create(
 
 				this.deleteFolderRecursive(localpath);
 
-				self.sendResponse(res, undefined, { info: "Module deleted" });
+				self.readModuleData();
+				let modulesreturntemp = [];
+				let modulesreturn = [];
+				var filterInstalled = function (value) {
+					return value.installed;
+				};
+				var installed = self.modulesAvailable.filter(filterInstalled);
+				if (req.body.cat) {
+					installed.forEach((element) => {
+						if (element.cat.toUpperCase() === req.body.cat.toUpperCase()) modulesreturntemp.push(element);
+					});
+				} else {
+					modulesreturntemp = installed;
+				}
+				if (req.body.search) {
+					modulesreturntemp.forEach((element) => {
+						if (element.name.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1 || element.desc.toUpperCase().indexOf(req.body.search.toUpperCase()) !== -1) modulesreturn.push(element);
+					});
+				} else {
+					modulesreturn = modulesreturntemp;
+				}
+				if (req.body.sort.toUpperCase() === "A-Z") {
+					modulesreturn.sort(function (a, b) {
+						return a.name.localeCompare(b.name);
+					});
+				}
+				if (req.body.sort.toUpperCase() === "Z-A") {
+					modulesreturn.sort(function (a, b) {
+						return b.name.localeCompare(a.name);
+					});
+				}
+
+				let config = this.getConfig();
+
+				/*for (let index = 0; index < modulesreturn.length; index++) {
+					const pos = config.modules.findIndex((i) => i.module === modulesreturn[index].longname);
+					if (pos !== -1) {
+						modulesreturn[index].isActiv = true;
+						if (this.hasProperty(config.modules[pos], "position")) {
+							modulesreturn[index].displayed = true;
+						} else {
+							modulesreturn[index].displayed = false;
+						}
+					} else {
+						modulesreturn[index].isActiv = false;
+						modulesreturn[index].displayed = false;
+					}
+				}*/
+
+				for (let index = 0; index < modulesreturn.length; index++) {
+					modulesreturn[index].displayed = false;
+				}
+
+				var position = config.modules.findIndex((i) => i.module === "MMM-Carousel");
+				for (var key of Object.keys(config.modules[position].config.slides)) {
+					for (let index = 0; index < config.modules[position].config.slides[key].length; index++) {
+						const pos = modulesreturn.findIndex((i) => i.longname === config.modules[position].config.slides[key][index].name);
+						modulesreturn[pos].displayed = true;
+					}
+				}
+
+				this.checkForUpdate(modulesreturn).then(() => {
+					this.gitLink(modulesreturn).then(() => {
+						this.sendResponse(res, undefined, { data: modulesreturn });
+					});
+				});
 			},
 
 			deleteFolderRecursive: function (localpath) {

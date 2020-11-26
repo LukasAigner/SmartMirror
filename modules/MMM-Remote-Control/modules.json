@@ -88,6 +88,14 @@
 		"cat": "Development / Core MagicMirror"
 	},
 	{
+		"longname": "MMM-Gitlab-MergeRequests",
+		"id": "jkschoen/MMM-Gitlab-MergeRequests",
+		"url": "https://github.com/jkschoen/MMM-Gitlab-MergeRequests",
+		"author": "jkschoen",
+		"desc": "Displays merge requests from gitlab and their status.",
+		"cat": "Development / Core MagicMirror"
+	},
+	{
 		"longname": "MMM-GitHub-Monitor",
 		"id": "BrainConverter/MMM-GitHub-Monitor",
 		"url": "https://github.com/BrainConverter/MMM-GitHub-Monitor",
@@ -5232,6 +5240,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-ISS",
+		"id": "daterrell/MMM-ISS",
+		"url": "https://github.com/daterrell/MMM-ISS",
+		"author": "daterrell",
+		"desc": "Like Mykle1's, but different.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-SpaceX",
 		"id": "koxm/MMM-SpaceX",
 		"url": "https://github.com/koxm/MMM-SpaceX",
@@ -6157,6 +6173,14 @@
 		"url": "https://github.com/0m4r/MMM-covid19",
 		"author": "0m4r",
 		"desc": "Live covid19 numbers provided via https://covid19api.com/",
+		"cat": "Health"
+	},
+	{
+		"longname": "MMM-RKI-Covid19",
+		"id": "fhinder/MMM-RKI-Covid19",
+		"url": "https://github.com/fhinder/MMM-RKI-Covid19",
+		"author": "fhinder",
+		"desc": "RKI-Covid19 data for German Counties",
 		"cat": "Health"
 	},
 	{
