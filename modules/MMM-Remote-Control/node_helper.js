@@ -1197,6 +1197,8 @@ module.exports = NodeHelper.create(
 					});
 				}
 
+				this.updateConfig(modData.longname);
+
 				let config = this.getConfig();
 
 				/*for (let index = 0; index < modulesreturn.length; index++) {
@@ -1231,6 +1233,50 @@ module.exports = NodeHelper.create(
 						this.sendResponse(res, undefined, { data: modulesreturn });
 					});
 				});
+			},
+
+			updateConfig: function (deletedModule) {
+				var config = this.getConfig();
+				var position = config.modules.findIndex((i) => i.module === deletedModule);
+				if (position != -1) config.modules.splice(position, 1);
+				var positionCarousel = config.modules.findIndex((i) => i.module === "MMM-Carousel");
+				for (var key of Object.keys(config.modules[positionCarousel].config.slides)) {
+					for (let index = 0; index < config.modules[positionCarousel].config.slides[key].length; index++) {
+						const pos = config.modules[positionCarousel].config.slides[key].findIndex((i) => i.name === deletedModule);
+						if (pos != -1) {
+							config.modules[positionCarousel].config.slides[key].splice(pos, 1);
+						}
+					}
+				}
+
+				var header =
+					"/* Magic Mirror Config Sample\n" +
+					"*\n" +
+					"* By Michael Teeuw http://michaelteeuw.nl\n" +
+					"* MIT Licensed.\n" +
+					"*\n" +
+					"* For more information on how you can configure this file\n" +
+					"* See https://github.com/MichMich/MagicMirror#configuration\n" +
+					"*\n" +
+					"*/\n" +
+					"var config = ";
+				var footer = ";\n/*************** DO NOT EDIT THE LINE BELOW ***************/ \n" + "if (typeof module !== 'undefined') {module.exports = config;}";
+				var configPath = path.resolve(__dirname, "../../config/config.js");
+				try {
+					fs.writeFileSync(
+						configPath,
+						header +
+							util.inspect(config, {
+								showHidden: false,
+								depth: null,
+								maxArrayLength: null,
+								compact: false
+							}) +
+							footer
+					);
+				} catch (err) {
+					console.log(err);
+				}
 			},
 
 			deleteFolderRecursive: function (localpath) {
