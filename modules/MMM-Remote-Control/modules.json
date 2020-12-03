@@ -912,6 +912,14 @@
 		"cat": "Transport / Travel"
 	},
 	{
+		"longname": "MMM-GoogleMaps-Tracking",
+		"id": "MartinGris/MMM-GoogleMaps-Tracking",
+		"url": "https://github.com/MartinGris/MMM-GoogleMaps-Tracking",
+		"author": "MartinGris",
+		"desc": "Tracking of multiple objects on a google map. Position can be updated by a notification.",
+		"cat": "Transport / Travel"
+	},
+	{
 		"longname": "MMM-GoogleMapsTraffic",
 		"id": "vicmora/MMM-GoogleMapsTraffic",
 		"url": "https://github.com/vicmora/MMM-GoogleMapsTraffic",
@@ -3176,6 +3184,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-gpsd",
+		"id": "brentpabst/MMM-gpsd",
+		"url": "https://github.com/brentpabst/MMM-gpsd",
+		"author": "brentpabst",
+		"desc": "Display real-time GPS data from GPSD",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-HTTPRequestDisplay",
 		"id": "Eunanibus/MMM-HTTPRequestDisplay",
 		"url": "https://github.com/Eunanibus/MMM-HTTPRequestDisplay",
@@ -3301,6 +3317,14 @@
 		"url": "https://github.com/MitchSS/MMM-Hue",
 		"author": "MitchSS",
 		"desc": "Display the status of groups or lights in your Philips Hue setup.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-Hue-Controller",
+		"id": "gueguet/MMM-Hue-Controller",
+		"url": "https://github.com/gueguet/MMM-Hue-Controller",
+		"author": "gueguet",
+		"desc": "This module allows you to control your Philips Hue lights with simple buttons.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -3685,6 +3709,14 @@
 		"url": "https://github.com/qistoph/MMM-nagios",
 		"author": "qistoph",
 		"desc": "A Magic Mirror Module for Nagios.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-NatureRemo",
+		"id": "mtatsuma/MMM-NatureRemo",
+		"url": "https://github.com/mtatsuma/MMM-NatureRemo",
+		"author": "mtatsuma",
+		"desc": "Displays sensor data collected by [Nature Remo](https://en.nature.global/) devices.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -4749,6 +4781,14 @@
 		"url": "https://github.com/blixhavn/MMM-AvfallshentingOslo",
 		"author": "Blixhavn",
 		"desc": "A module to show the next waste pickup dates for any address in Oslo, Norway",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-Minigjenbruksstasjon",
+		"id": "blixhavn/MMM-Minigjenbruksstasjon",
+		"url": "https://github.com/blixhavn/MMM-Minigjenbruksstasjon",
+		"author": "Blixhavn",
+		"desc": "A module to show opening hours for mobile recycling stations in Oslo, Norway. API free, so if it looks intresting, check to see if you can use it for your city too!",
 		"cat": "Entertainment / Misc"
 	},
 	{

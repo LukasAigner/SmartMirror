@@ -188,6 +188,7 @@ sup {
 .region.top.left,
 .region.top.center {
   top: 100%;
+  max-width: calc((100%) / 3);
 }
 
 .region.bottom {
@@ -202,6 +203,7 @@ sup {
 .region.bottom.center,
 .region.bottom.left {
   bottom: 100%;
+  max-width: calc((100%) / 3);
 }
 
 .region.bar {
