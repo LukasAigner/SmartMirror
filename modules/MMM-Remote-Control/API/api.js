@@ -210,6 +210,9 @@ module.exports = {
 		this.expressRouter.route("/update/:moduleName").get((req, res) => {
 			this.updateModule(req.params.moduleName, res);
 		});
+		this.expressRouter.route("/getModuleConfig/:moduleName").get((req, res) => {
+			this.getModuleConfig(req.params.moduleName, res);
+		});
 
 		this.expressRouter.route("/delete/:moduleName").post((req, res) => {
 			this.deleteModule(req.params.moduleName, res, req);

@@ -1144,6 +1144,59 @@ module.exports = NodeHelper.create(
 				});
 			},
 
+			getModuleConfig: function (module, res) {
+				//console.log(module);
+				var self = this;
+				try {
+					var data = fs.readFileSync(path.resolve(__dirname + "/../" + module + "/" + module + ".js"), "utf-8");
+					this.getModuleConfigResponse(path.resolve(__dirname + "/../" + module + "/" + module + ".js"), res);
+				} catch (err) {
+					try {
+						var data = fs.readFileSync(path.resolve(__dirname + "/../default/" + module + "/" + module + ".js"), "utf-8");
+						this.getModuleConfigResponse(path.resolve(__dirname + "/../default/" + module + "/" + module + ".js"), res);
+					} catch (error) {
+						self.sendResponse(res, new Error("Unknown Module"), { success: false });
+					}
+				}
+			},
+
+			getModuleConfigResponse: function (Path, res) {
+				var self = this;
+				var returnstring;
+				var data = fs.readFileSync(Path, "utf-8");
+				data = data.toString();
+				var startindex = data.indexOf("defaults");
+				if (startindex == -1) {
+					self.sendResponse(res, new Error("No default values"), { success: false });
+				} else {
+					var stack = [];
+					var end = false;
+					for (let index = startindex + 1; index < data.length && !end; ) {
+						let indexopen = data.indexOf("{", index);
+						let indexclose = data.indexOf("}", index);
+						if (indexopen < indexclose) {
+							stack.push(indexopen);
+							index = indexopen + 1;
+						} else {
+							let currentindex = stack.pop();
+							index = indexclose + 1;
+							if (!stack.length) {
+								returnstring = data.substring(currentindex, indexclose + 1);
+								var end = true;
+							}
+						}
+					}
+					//returnstring = returnstring.replace(/\r?\n|\r/g, "");
+					//returnstring = returnstring.replace(/\s+/g, "");
+					returnstring = "var obj=" + returnstring + ";";
+					returnstring = returnstring + "module.exports.obj = obj;";
+					fs.writeFileSync(path.resolve(__dirname + "/getModuleConfig.js"), returnstring);
+					const moduleData = require("./getModuleConfig.js");
+					self.sendResponse(res, undefined, { success: true, data: moduleData.obj });
+					fs.unlinkSync(path.resolve(__dirname + "/getModuleConfig.js"));
+				}
+			},
+
 			deleteModule: function (module, res, req) {
 				var self = this;
 				self.updateModuleList();

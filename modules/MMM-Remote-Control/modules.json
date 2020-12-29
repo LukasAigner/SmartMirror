@@ -400,6 +400,14 @@
 		"cat": "Finance"
 	},
 	{
+		"longname": "MMM-Questrade",
+		"id": "Daniel1145/MMM-Questrade",
+		"url": "https://github.com/Daniel1145/MMM-Questrade",
+		"author": "Daniel1145",
+		"desc": "Displays your Questrade positions",
+		"cat": "Finance"
+	},
+	{
 		"longname": "MMM-SingleStock",
 		"id": "balassy/MMM-SingleStock",
 		"url": "https://github.com/balassy/MMM-SingleStock",
@@ -928,7 +936,7 @@
 		"cat": "Transport / Travel"
 	},
 	{
-		"longname": "MMM-GoogleTraffic",
+		"longname": "MMM-GoogleTrafficTimes",
 		"id": "pjestico/MMM-GoogleTrafficTimes",
 		"url": "https://github.com/pjestico/MMM-GoogleTrafficTimes",
 		"author": "pjestico",
@@ -1341,6 +1349,14 @@
 		"url": "https://github.com/CatoAntonsen/MMM-Ruter",
 		"author": "CatoAntonsen",
 		"desc": "Display public transport information for Oslo and Akershus in Norway. Abandoned - see [MMM-Entur-tavle](https://github.com/Arve/MMM-Entur-tavle) instead.",
+		"cat": "Transport / Travel"
+	},
+	{
+		"longname": "MMM-SeawayLockTraffic",
+		"id": "ProfKP/MMM-SeawayLockTraffic",
+		"url": "https://github.com/ProfKP/MMM-SeawayLockTraffic",
+		"author": "ProfKP",
+		"desc": "Display order of turn information for ships transiting the St Lawrence Seaway Locks.",
 		"cat": "Transport / Travel"
 	},
 	{
@@ -1857,8 +1873,8 @@
 	},
 	{
 		"longname": "MMM-UVIndex",
-		"id": "bitbucket.org/rspereznMMM-uvindex",
-		"url": "https://bitbucket.org/rspereznMMM-uvindex",
+		"id": "master/",
+		"url": "https://bitbucket.org/rsperezn/mmm-uvindex/src/master/",
 		"author": "rsperezn",
 		"desc": "Displays the current and forecasted UV Index fo a given location given its longitude and latitude. It requires a free API token from https://www.openuv.io/",
 		"cat": "Weather"
@@ -2203,16 +2219,8 @@
 		"longname": "MMM-NOAA3",
 		"id": "cowboysdude/MMM-NOAA3",
 		"url": "https://github.com/cowboysdude/MMM-NOAA3",
-		"author": "Cowboysdude",
-		"desc": "Different providers for users to choose from.  Shows current plus 3 day forecast. Mouseover shows forecast, with Air, UV, Humidity, Sunrise and Set.",
-		"cat": "Weather"
-	},
-	{
-		"longname": "MMM-NOAA3",
-		"id": "cowboysdude/MMM-NOAA3",
-		"url": "https://github.com/cowboysdude/MMM-NOAA3",
 		"author": "cowboysdude",
-		"desc": "Display of weather with a variety of config options and providers.  Shows current plus 3 day forecast",
+		"desc": "Different providers for users to choose from.  Shows current plus 3 day forecast. Mouseover shows forecast, with Air, UV, Humidity, Sunrise and Set.",
 		"cat": "Weather"
 	},
 	{
@@ -2229,6 +2237,14 @@
 		"url": "https://github.com/sathyarajv/MMM-OpenmapWeather",
 		"author": "SathyarajV",
 		"desc": "Display current weather as image based on the Openmap Weather API data with different formatting.",
+		"cat": "Weather"
+	},
+	{
+		"longname": "MMM-OpenWeatherMapForecast",
+		"id": "MarcLandis/MMM-OpenWeatherMapForecast",
+		"url": "https://github.com/MarcLandis/MMM-OpenWeatherMapForecast",
+		"author": "MarcLandis",
+		"desc": "A weather module that displays current, hourly and daily forecast information using data from the OpenWeatherMap One Call API. This is based on the MMM-DarkSkyForecast module by jclarke0000.",
 		"cat": "Weather"
 	},
 	{
@@ -2520,6 +2536,14 @@
 		"cat": "Sports"
 	},
 	{
+		"longname": "MMM-BiathlonResults",
+		"id": "grenagit/MMM-BiathlonResults",
+		"url": "https://github.com/grenagit/MMM-BiathlonResults",
+		"author": "Grena",
+		"desc": "A Magic Mirror Module displaying the current biathlon results (World Cup and IBU Cup).",
+		"cat": "Sports"
+	},
+	{
 		"longname": "MMM-CollegeFootballTop25",
 		"id": "AdamMoses-GitHub/MMM-CollegeFootballTop25",
 		"url": "https://github.com/AdamMoses-GitHub/MMM-CollegeFootballTop25",
@@ -2637,6 +2661,14 @@
 		"url": "https://github.com/LukasKlose/MMM-Speedway",
 		"author": "LukasKlose",
 		"desc": "A module that displays the tables of the Polish Speedway Leagues (PGE Ekstraliga, I. Liga Żużlowa , II. Liga Żużlowa).",
+		"cat": "Sports"
+	},
+	{
+		"longname": "MMM-GHIN",
+		"id": "C-Deck/MMM-GHIN",
+		"url": "https://github.com/C-Deck/MMM-GHIN",
+		"author": "C-Deck",
+		"desc": "A module that displays your official USGA Ghin handicap.",
 		"cat": "Sports"
 	},
 	{
@@ -3680,6 +3712,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-Peloton",
+		"id": "chicohernando/MMM-Peloton",
+		"url": "https://github.com/chicohernando/MMM-Peloton",
+		"author": "chicohernando",
+		"desc": "This will show you your Peloton information to keep you motivated to achieve your goals.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-RecyclingCalendar",
 		"id": "FatTony123/MMM-RecyclingCalendar",
 		"url": "https://github.com/FatTony123/MMM-RecyclingCalendar",
@@ -4656,6 +4696,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-01ZM",
+		"id": "rubinho101/MMM-01ZM",
+		"url": "https://github.com/rubinho101/MMM-01ZM",
+		"author": "rubinho101",
+		"desc": "Display Xiaomi LYWSDCGQ 01ZM Temperature and Humidity sensor values directly AND Nova SDS011 PM Air Quality sensor data.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-1-Second-A-Day",
 		"id": "GaryLChew/MMM-1-Second-A-Day",
 		"url": "https://github.com/GaryLChew/MMM-1-Second-A-Day",
@@ -5152,6 +5200,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-FlipClock",
+		"id": "MarcLandis/MMM-FlipClock",
+		"url": "https://github.com/MarcLandis/MMM-FlipClock",
+		"author": "MarcLandis",
+		"desc": "A classic flip clock that is powered by the awesome [flip plugin](https://pqina.nl/flip/).",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-food2fork-recipes",
 		"id": "spectroman/mmm-food2fork-recipes",
 		"url": "https://github.com/spectroman/mmm-food2fork-recipes",
@@ -5640,6 +5696,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-SpotifyReleases",
+		"id": "Ruud14/MMM-SpotifyReleases",
+		"url": "https://github.com/Ruud14/MMM-SpotifyReleases",
+		"author": "Ruud14",
+		"desc": "Displays the latest releases from your favorite spotify artists.",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-NowPlayingOnSpotify",
 		"id": "raywo/MMM-NowPlayingOnSpotify",
 		"url": "https://github.com/raywo/MMM-NowPlayingOnSpotify",
@@ -5997,6 +6061,14 @@
 		"url": "https://github.com/Snille/MMM-Videoplayer",
 		"author": "Snille",
 		"desc": "Play a videofile (from local folder or internet) in any region. The module will pause the video when hidden and resume when shown. You can also pause and play by using notifications.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-VocabularyTrainer",
+		"id": "fewieden/MMM-VocabularyTrainer",
+		"url": "https://github.com/fewieden/MMM-VocabularyTrainer",
+		"author": "fewieden",
+		"desc": "Learn new languages on your MagicMirror².",
 		"cat": "Entertainment / Misc"
 	},
 	{
