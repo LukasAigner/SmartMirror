@@ -174,7 +174,7 @@ module.exports = {
 			fs.writeFile(
 				configPath,
 				header +
-					util.inspect(req.body.body, {
+					util.inspect(req.body.config, {
 						showHidden: false,
 						depth: null,
 						maxArrayLength: null,
@@ -183,14 +183,16 @@ module.exports = {
 					footer,
 				function (err) {
 					if (err) {
-						res.writeHead(500, { "Content-Type": "text/plain" });
-						res.end("Settings could not be saved");
+						response = { success: false, status: "error", reason: "Could not save settings", info: error };
+						status = 400;
+						res.status(status).json(response);
 						return console.log(err);
+					} else {
+						let response = { success: true };
+						let status = 200;
+						res.status(status).json(response);
+						self.sendSocketNotification("REFRESH");
 					}
-					res.writeHead(200, { "Content-Type": "text/plain" });
-					res.end("Settings saved"); // echo the result back
-					//console.log("All config saved to file!");
-					self.sendSocketNotification("REFRESH");
 				}
 			);
 		});

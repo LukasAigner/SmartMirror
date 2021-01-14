@@ -3444,6 +3444,14 @@
 		"id": "amcolash/MMM-json-feed",
 		"url": "https://github.com/amcolash/MMM-json-feed",
 		"author": "amcolash",
+		"desc": "(Deprecated) Display data from any JSON source.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-json",
+		"id": "DanielHabenicht/MMM-json",
+		"url": "https://github.com/DanielHabenicht/MMM-json",
+		"author": "danielhabenicht",
 		"desc": "Display data from any JSON source.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
@@ -3712,14 +3720,6 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
-		"longname": "MMM-Peloton",
-		"id": "chicohernando/MMM-Peloton",
-		"url": "https://github.com/chicohernando/MMM-Peloton",
-		"author": "chicohernando",
-		"desc": "This will show you your Peloton information to keep you motivated to achieve your goals.",
-		"cat": "Utility / IOT / 3rd Party / Integration"
-	},
-	{
 		"longname": "MMM-RecyclingCalendar",
 		"id": "FatTony123/MMM-RecyclingCalendar",
 		"url": "https://github.com/FatTony123/MMM-RecyclingCalendar",
@@ -3909,6 +3909,14 @@
 		"url": "https://github.com/mykle1/MMM-PC-Stats",
 		"author": "mykle1",
 		"desc": "A MagicMirror module to get system stats from a PC board. Supports multiple core CPU's.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-Peloton",
+		"id": "chicohernando/MMM-Peloton",
+		"url": "https://github.com/chicohernando/MMM-Peloton",
+		"author": "chicohernando",
+		"desc": "This will show you your Peloton information to keep you motivated to achieve your goals.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -4704,6 +4712,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-MALList",
+		"id": "NikosNtigas/MMM-MALList",
+		"url": "https://github.com/NikosNtigas/MMM-MALList",
+		"author": "NikosNtigas",
+		"desc": "Display the currently watching anime / currently reading manga of an [MyAnimeList](https://myanimelist.net) account.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-1-Second-A-Day",
 		"id": "GaryLChew/MMM-1-Second-A-Day",
 		"url": "https://github.com/GaryLChew/MMM-1-Second-A-Day",
@@ -4949,6 +4965,14 @@
 		"url": "https://github.com/ianperrin/MMM-Clash-Royale",
 		"author": "ian",
 		"desc": "A module that displays random Clash Royale decks.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-ClashRoyaleChests",
+		"id": "chicohernando/MMM-ClashRoyaleChests",
+		"url": "https://github.com/chicohernando/MMM-ClashRoyaleChests",
+		"author": "chicohernando",
+		"desc": "This will show you your upcoming chests to open in ClashRoyale.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -6264,6 +6288,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-Breathwork",
+		"id": "yashatgit/MMM-Breathwork",
+		"url": "https://github.com/yashatgit/MMM-Breathwork",
+		"author": "Yash",
+		"desc": "Quick Breathing Exercise to calm you down",
+		"cat": "Health"
+	},
+	{
 		"longname": "MMM-COVID19",
 		"id": "bibaldo/MMM-COVID19",
 		"url": "https://github.com/bibaldo/MMM-COVID19",
@@ -6325,6 +6357,22 @@
 		"url": "https://github.com/balharrie/MMM-SugarValue",
 		"author": "balharrie",
 		"desc": "Displays last reading from your Dexcom G6 via the share API",
+		"cat": "Health"
+	},
+	{
+		"longname": "MMM-WaterReminder",
+		"id": "thiagomides/MMM-WaterReminder",
+		"url": "https://github.com/thiagomides/MMM-WaterReminder",
+		"author": "thiagomides",
+		"desc": "A simple Water Reminder Module for MagicMirror",
+		"cat": "Health"
+	},
+	{
+		"longname": "MMM-Oura",
+		"id": "erchenger/MMM-Oura",
+		"url": "https://github.com/erchenger/MMM-Oura",
+		"author": "erchenger",
+		"desc": "Allows you to see last night's sleep data from your Oura sleep tracker. WIP",
 		"cat": "Health"
 	}
 ]

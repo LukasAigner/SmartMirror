@@ -1,43 +1,25 @@
 /* Magic Mirror Config Sample
- *
- * By Michael Teeuw https://michaelteeuw.nl
- * MIT Licensed.
- *
- * For more information on how you can configure this file
- * See https://github.com/MichMich/MagicMirror#configuration
- *
- */
-
+*
+* By Michael Teeuw http://michaelteeuw.nl
+* MIT Licensed.
+*
+* For more information on how you can configure this file
+* See https://github.com/MichMich/MagicMirror#configuration
+*
+*/
 var config = {
-	address: "localhost", 	// Address to listen on, can be:
-							// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
-							// - another specific IPv4/6 to listen on a specific interface
-							// - "0.0.0.0", "::" to listen on any interface
-							// Default, when address config is left out or empty, is "localhost"
-	port: 8080,
-	basePath: "/", 	// The URL path where MagicMirror is hosted. If you are using a Reverse proxy
-					// you must set the sub path here. basePath must end with a /
-	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], 	// Set [] to allow all IP addresses
-															// or add a specific IPv4 of 192.168.1.5 :
-															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-															// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-															// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
-
-	useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
-	httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
-	httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
-
-	language: "en",
-	logLevel: ["INFO", "LOG", "WARN", "ERROR"],
-	timeFormat: 24,
-	units: "metric",
-	// serverOnly:  true/false/"local" ,
-	// local for armv6l processors, default
-	//   starts serveronly and then starts chrome browser
-	// false, default for all NON-armv6l devices
-	// true, force serveronly mode, because you want to.. no UI on this device
-
-	modules: [
+  address: '0.0.0.0',
+  port: 8080,
+  basePath: '/',
+  kioskmode: false,
+  electronOptions: {},
+  ipWhitelist: [],
+  language: 'en',
+  timeFormat: 24,
+  units: 'metric',
+  zoom: 1,
+  customCss: 'css/custom.css',
+  modules: [
     {
       module: 'MMM-Remote-Control',
       config: {
@@ -45,14 +27,40 @@ var config = {
       }
     },
     {
-      module: 'alert'
+      module: 'alert',
     },
     {
-      module: 'updatenotification'
+      module: 'updatenotification',
+      config: {
+        updateInterval: 600000,
+        refreshInterval: 86400000,
+        ignoreModules: []
+      }
     },
     {
       module: 'clock',
       position: 'top_left',
+      config: {
+        displayType: 'digital',
+        timeFormat: 24,
+        displaySeconds: true,
+        showPeriod: true,
+        showPeriodUpper: false,
+        clockBold: false,
+        showDate: true,
+        showWeek: false,
+        dateFormat: 'dddd, LL',
+        analogSize: '200px',
+        analogFace: 'simple',
+        analogPlacement: 'bottom',
+        analogShowDate: 'top',
+        secondsColor: '#888888',
+        timezone: null,
+        showSunTimes: false,
+        showMoonTimes: false,
+        lat: 47.630539,
+        lon: -122.344147
+      }
     },
     {
       module: 'MMM-Carousel',
@@ -62,47 +70,232 @@ var config = {
         showPageIndicators: true,
         showPageControls: false,
         mode: 'slides',
-        slides:{
-          main:[{name:'calendar',position:'top_right'}, {name:'compliments', position:'upper_third'}, {name:'newsfeed', position:'lower_third'}],
-          "Slide 1":[{name:'clock', position:'top_left'}, {name:'compliments', position:'top_right'}, {name:'newsfeed',position:'lower_third'}],
+        slides: {
+          main: [
+            {
+              name: 'calendar',
+              position: 'top_right'
+            },
+            {
+              name: 'newsfeed',
+              position: 'lower_third'
+            },
+          ],
+          'Slide 1': [
+            {
+              name: 'clock',
+              position: 'top_left'
+            },
+            {
+              name: 'newsfeed',
+              position: 'bottom_center'
+            }
+          ]
         },
-      },
+        transitionInterval: 10000,
+        slideTransitionSpeed: 1500,
+        top_bar: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        top_left: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        top_center: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        top_right: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        upper_third: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        middle_center: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        lower_third: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        bottom_left: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        bottom_center: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        bottom_right: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        bottom_bar: {
+          enabled: false,
+          ignoreModules: [],
+          overrideTransitionInterval: 10000
+        },
+        setTimer: false,
+        keyBindings: {
+          enabled: true
+        }
+      }
     },
     {
-      module: "calendar",
-      header: "US Holidays",
+      module: 'calendar',
+      header: 'US Holidays',
       position: 'top_left',
       config: {
         calendars: [
           {
-            symbol: "calendar-check",
-            url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
+            symbol: 'calendar-check',
+            url: 'webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics'
           }
-        ]
+        ],
+        maximumEntries: 10,
+        maximumNumberOfDays: 365,
+        displaySymbol: true,
+        defaultSymbol: 'calendar',
+        showLocation: false,
+        displayRepeatingCountTitle: false,
+        defaultRepeatingCountTitle: '',
+        maxTitleLength: 25,
+        maxLocationTitleLength: 25,
+        wrapEvents: false,
+        wrapLocationEvents: false,
+        maxTitleLines: 3,
+        maxEventTitleLines: 3,
+        fetchInterval: 300000,
+        animationSpeed: 2000,
+        fade: true,
+        urgency: 7,
+        timeFormat: 'relative',
+        dateFormat: 'MMM Do',
+        dateEndFormat: 'LT',
+        fullDayEventDateFormat: 'MMM Do',
+        showEnd: false,
+        getRelative: 6,
+        fadePoint: 0.25,
+        hidePrivate: false,
+        hideOngoing: false,
+        colored: false,
+        coloredSymbolOnly: false,
+        tableClass: 'small',
+        titleReplace: {
+          'De verjaardag van ': '',
+          "'s birthday": ''
+        },
+        locationTitleReplace: {
+          'street ': ''
+        },
+        broadcastEvents: true,
+        excludedEvents: [],
+        sliceMultiDayEvents: false,
+        broadcastPastEvents: false,
+        nextDaysRelative: false
       }
     },
     {
-      module: "compliments",
+      module: 'compliments',
       position: 'top_left',
+      config: {
+        compliments: {
+          anytime: [
+            'Hey there sexy!'
+          ],
+          morning: [
+            'Good morning, handsome!',
+            'Enjoy your day!',
+            'How was your sleep?'
+          ],
+          afternoon: [
+            'Hello, beauty!',
+            'You look sexy!',
+            'Looking good today!'
+          ],
+          evening: [
+            'Wow, you look hot!',
+            'You look nice!',
+            'Hi, sexy!'
+          ],
+          '....-01-01': [
+            'Happy new year!'
+          ]
+        },
+        updateInterval: 30000,
+        remoteFile: null,
+        fadeSpeed: 4000,
+        morningStartTime: 3,
+        morningEndTime: 12,
+        afternoonStartTime: 12,
+        afternoonEndTime: 17,
+        random: true,
+        mockDate: null
+      }
     },
     {
-      module: "newsfeed",
+      module: 'newsfeed',
       position: 'top_left',
       config: {
         feeds: [
           {
-            title: "New York Times",
-            url: "https://rss.orf.at/news.xml"
+            title: 'ORF',
+            url: 'https://rss.orf.at/news.xml'
           }
         ],
         showSourceTitle: true,
         showPublishDate: true,
         broadcastNewsFeeds: true,
-        broadcastNewsUpdates: true
+        broadcastNewsUpdates: true,
+        showDescription: false,
+        wrapTitle: true,
+        wrapDescription: true,
+        truncDescription: true,
+        lengthDescription: 400,
+        hideLoading: false,
+        reloadInterval: 300000,
+        updateInterval: 10000,
+        animationSpeed: 2500,
+        maxNewsItems: 0,
+        ignoreOldItems: false,
+        ignoreOlderThan: 86400000,
+        removeStartTags: '',
+        removeEndTags: '',
+        startTags: [],
+        endTags: [],
+        prohibitedWords: [],
+        scrollLength: 500,
+        logFeedWarnings: false
       }
-    },
+    }
   ],
+  paths: {
+    modules: 'modules',
+    vendor: 'vendor'
+  },
+  useHttps: false,
+  httpsPrivateKey: '',
+  httpsCertificate: '',
+  logLevel: [
+    'INFO',
+    'LOG',
+    'WARN',
+    'ERROR'
+  ]
 };
-
-/*************** DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== "undefined") {module.exports = config;}
+/*************** DO NOT EDIT THE LINE BELOW ***************/ 
+if (typeof module !== 'undefined') {module.exports = config;}

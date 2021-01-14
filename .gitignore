@@ -66,6 +66,9 @@ Temporary Items
 !/modules/MMM-Remote-Control
 !/modules/MMM-Remote-Control/**
 
+
+!/modules/MMM-Carousel
+!/modules/MMM-Carousel/**
 # Ignore changes to the custom css files.
 /css/custom.css
 
@@ -122,3 +125,6 @@ Temporary Items
 
 # Package Lock File
 /modules/MMM-Remote-Control/package-lock.json
+
+#Pages
+/modules/MMM-Carousel/node_modules
