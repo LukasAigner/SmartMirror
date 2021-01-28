@@ -392,6 +392,14 @@
 		"cat": "Finance"
 	},
 	{
+		"longname": "MMM-Jast",
+		"id": "jalibu/MMM-Jast",
+		"url": "https://github.com/jalibu/MMM-Jast",
+		"author": "Jalibu",
+		"desc": "A vertical or horizontal ticker for stock and crypto symbols based on Alphavantage API. Multiple currencies, depot value growth summary, etc..",
+		"cat": "Finance"
+	},
+	{
 		"longname": "MMM-LICE",
 		"id": "mykle1/MMM-LICE",
 		"url": "https://github.com/mykle1/MMM-LICE",
@@ -1616,6 +1624,14 @@
 		"cat": "Transport / Travel"
 	},
 	{
+		"longname": "MMM-UKLiveTrainDepartures",
+		"id": "XBCreepinJesus/MMM-UKLiveTrainDepartures",
+		"url": "https://github.com/XBCreepinJesus/MMM-UKLiveTrainDepartures",
+		"author": "CreepinJesus",
+		"desc": "A module showing live train departure/arrival times for the UK's National Rail network.",
+		"cat": "Transport / Travel"
+	},
+	{
 		"longname": "MMM-UKNationalRail",
 		"id": "nwootton/MMM-UKNationalRail",
 		"url": "https://github.com/nwootton/MMM-UKNationalRail",
@@ -1925,6 +1941,14 @@
 		"url": "https://github.com/nebulx29/MMM-bergfex",
 		"author": "nebulx",
 		"desc": "Displays snow reports from bergfex.at",
+		"cat": "Weather"
+	},
+	{
+		"longname": "MMM-bergfex.at",
+		"id": "FatTony404/MMM-bergfex",
+		"url": "https://github.com/FatTony404/MMM-bergfex",
+		"author": "FatTony404",
+		"desc": "Displays snow reports from bergfex.at, forked version. Countries provided by bergfex.at can be configured and set.",
 		"cat": "Weather"
 	},
 	{
@@ -2285,6 +2309,14 @@
 		"url": "https://github.com/spoturdeal/MMM-rain-forecast",
 		"author": "Carl",
 		"desc": "Graphical rain forecast for the Netherlands, no dependies or outside scripts needed. Superfast with scalable vector graphics in desired color",
+		"cat": "Weather"
+	},
+	{
+		"longname": "MMM-RAIN-MAP",
+		"id": "jalibu/MMM-RAIN-MAP",
+		"url": "https://github.com/jalibu/MMM-RAIN-MAP",
+		"author": "Jalibu",
+		"desc": "A rain radar map with OpenStreetMap and GoogleMaps support. Multiple location markers, option for alternating zoom levels",
 		"cat": "Weather"
 	},
 	{
@@ -2845,6 +2877,14 @@
 		"url": "https://github.com/timodejong95/MMM-BluetoothDevices",
 		"author": "timodejong95",
 		"desc": "Connecting Bluetooth devices, currently only Oral-B toothbrushes",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-BoschSmartHome",
+		"id": "jalibu/MMM-BoschSmartHome",
+		"url": "https://github.com/jalibu/MMM-BoschSmartHome",
+		"author": "Jalibu",
+		"desc": "A client interface for the Bosch Smart Home System. Supports rooms, Window/Door contacts, Room Climate Controls, Thermostats, Twinguards, Visualization of Temperature, Humidity and Purity, Bosch Home Connect Dishwashers, Philips Hue Bridge",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -3456,6 +3496,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-JsonValue",
+		"id": "c-klinger/MMM-JsonValue",
+		"url": "https://github.com/c-klinger/MMM-JsonValue",
+		"author": "c-klinger",
+		"desc": "Display data from any Web/REST API that return JSON.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-JSONStatusChecker",
 		"id": "shbatm/MMM-JSONStatusChecker",
 		"url": "https://github.com/shbatm/MMM-JSONStatusChecker",
@@ -3864,6 +3912,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-openhabQuickWatch",
+		"id": "steve415/MMM-openhabQuickWatch",
+		"url": "https://github.com/steve415/MMM-openhabQuickWatch",
+		"author": "steve415",
+		"desc": "Show item states from openhab on your MagicMirror.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-OpenSprinkler",
 		"id": "johnny-co/MMM-OpenSprinkler",
 		"url": "https://github.com/johnny-co/MMM-OpenSprinkler",
@@ -3948,7 +4004,7 @@
 		"id": "martinkooij/MMM-Parcel",
 		"url": "https://github.com/martinkooij/MMM-Parcel",
 		"author": "martinkooij",
-		"desc": "Glance over your parcel deliveries on your Mirror, track your shipments. >400 couriers supported (AfterShip integration). Various layout options depending on your need. With auto translate feature to your language.",
+		"desc": "*RENEWED* Glance over your parcel deliveries on your Mirror, track your shipments. >700 couriers supported (Integrating via Tracktry.com). Various layout options depending on your need. With auto translate feature to your language.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -4152,6 +4208,22 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-TRV-WastePlan",
+		"id": "reidarw/MMM-TRV-WastePlan",
+		"url": "https://github.com/reidarw/MMM-TRV-WastePlan",
+		"author": "reidarw",
+		"desc": "Module for showing the waste plan for your destination in Trondheim, Norway",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-PostDelivery-Norway",
+		"id": "reidarw/MMM-PostDelivery-Norway",
+		"url": "https://github.com/reidarw/MMM-PostDelivery-Norway",
+		"author": "reidarw",
+		"desc": "Module for showing showing the next post delivery day for your zip code in Norway",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-ScreenLogic",
 		"id": "parnic/MMM-ScreenLogic",
 		"url": "https://github.com/parnic/MMM-ScreenLogic",
@@ -4189,6 +4261,14 @@
 		"url": "https://github.com/mattileh/MMM-SensorGateway",
 		"author": "Mattileh",
 		"desc": "This module enables having live sensor data without touching the Pi hardware by utilizing the BLE advertisment beacons from sensors and routing that live info into MagicMirror² platform",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-ServerStatus",
+		"id": "XBCreepinJesus/MMM-ServerStatus",
+		"url": "https://github.com/XBCreepinJesus/MMM-ServerStatus",
+		"author": "CreepinJesus",
+		"desc": "A module to check the up/down status of servers/devices on your network.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{

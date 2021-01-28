@@ -1145,7 +1145,6 @@ module.exports = NodeHelper.create(
 			},
 
 			getModuleConfig: function (module, res) {
-				//console.log(module);
 				var self = this;
 				try {
 					var data = fs.readFileSync(path.resolve(__dirname + "/../" + module + "/" + module + ".js"), "utf-8");
@@ -1191,9 +1190,10 @@ module.exports = NodeHelper.create(
 					returnstring = "var obj=" + returnstring + ";";
 					returnstring = returnstring + "module.exports.obj = obj;";
 					fs.writeFileSync(path.resolve(__dirname + "/getModuleConfig.js"), returnstring);
-					const moduleData = require("./getModuleConfig.js");
+					var moduleData = require("./getModuleConfig.js");
 					self.sendResponse(res, undefined, { success: true, data: moduleData.obj });
 					fs.unlinkSync(path.resolve(__dirname + "/getModuleConfig.js"));
+					delete require.cache[require.resolve("./getModuleConfig.js")];
 				}
 			},
 
