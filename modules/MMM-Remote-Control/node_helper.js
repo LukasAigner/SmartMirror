@@ -1164,7 +1164,7 @@ module.exports = NodeHelper.create(
 				var returnstring;
 				var data = fs.readFileSync(Path, "utf-8");
 				data = data.toString();
-				var startindex = data.indexOf("defaults");
+				var startindex = data.indexOf("defaults:");
 				if (startindex == -1) {
 					self.sendResponse(res, new Error("No default values"), { success: false });
 				} else {

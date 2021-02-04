@@ -568,6 +568,14 @@
 		"cat": "News / Religion / Information"
 	},
 	{
+		"longname": "MMM-PlaceInfo",
+		"id": "njwilliams/MMM-PlaceInfo",
+		"url": "https://github.com/njwilliams/MMM-PlaceInfo",
+		"author": "njwilliams",
+		"desc": "Displays brief information (flag, weather, exchange rate) about multiple locations at once",
+		"cat": "News / Religion / Information"
+	},
+	{
 		"longname": "MMM-PrayerTime",
 		"id": "slametps/MMM-PrayerTime",
 		"url": "https://github.com/slametps/MMM-PrayerTime",
@@ -1720,6 +1728,14 @@
 		"cat": "Transport / Travel"
 	},
 	{
+		"longname": "MMM-MercedesMe",
+		"id": "ashishtank/MMM-MercedesMe",
+		"url": "https://github.com/ashishtank/MMM-MercedesMe",
+		"author": "Ashish Tank",
+		"desc": "Displays EV/Fuel status and Range of Mercedes cars",
+		"cat": "Transport / Travel"
+	},
+	{
 		"longname": "MMM-Alexa",
 		"id": "sakirtemel/MMM-alexa",
 		"url": "https://github.com/sakirtemel/MMM-alexa",
@@ -2702,6 +2718,14 @@
 		"author": "C-Deck",
 		"desc": "A module that displays your official USGA Ghin handicap.",
 		"cat": "Sports"
+	},
+	{
+		"longname": "MMM-Block",
+		"id": "BKeyport/MMM-Block",
+		"url": "https://github.com/BKeyport/MMM-Block",
+		"author": "BKeyport",
+		"desc": "Quick Module to easily move modules up or down for blank space",
+		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
 		"longname": "next-train-transilien",
@@ -4576,6 +4600,14 @@
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
+		"longname": "MMM-UniFi-Voucher",
+		"id": "bacherd/MMM-UniFi-Voucher",
+		"url": "https://github.com/bacherd/MMM-UniFi-Voucher",
+		"author": "bacherd",
+		"desc": "Displays UniFi hotspot vouchers.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
 		"longname": "MMM-updateFromStdOut",
 		"id": "msteinkogler/MMM-updateFromStdOut",
 		"url": "https://github.com/msteinkogler/MMM-updateFromStdOut",
@@ -4597,6 +4629,14 @@
 		"url": "https://github.com/olexs/MMM-UserPresenceToMQTT",
 		"author": "olexs",
 		"desc": "Publish USER_PRESENCE from PIR or motion detector modules to MQTT, allowing to use the mirror as a smart home presence sensor.",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-vCard2Calendar",
+		"id": "n-gao/MMM-vCard2Calendar",
+		"url": "https://github.com/n-gao/MMM-vCard2Calendar",
+		"author": "n-gao",
+		"desc": "Enables you to display birthdays from a contacts via a vCard.",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -4645,6 +4685,14 @@
 		"url": "https://github.com/SVendittelli/MMM-wordnik",
 		"author": "Vendittelli",
 		"desc": "Get the word of the day, its definition, and origin ...",
+		"cat": "Utility / IOT / 3rd Party / Integration"
+	},
+	{
+		"longname": "MMM-WS281X-Server",
+		"id": "coderpussy/MMM-WS281X-Server",
+		"url": "https://github.com/coderpussy/MMM-WS281X-Server",
+		"author": "c0d3rpu55y",
+		"desc": "Have ws2812 LEDs on your mirror with [RPI-WS2812-Server](https://github.com/coderpussy/MMM-WS281X-Server).",
 		"cat": "Utility / IOT / 3rd Party / Integration"
 	},
 	{
@@ -5552,6 +5600,14 @@
 		"cat": "Entertainment / Misc"
 	},
 	{
+		"longname": "MMM-Kanji-Random",
+		"id": "njwilliams/MMM-Kanji-Random",
+		"url": "https://github.com/njwilliams/MMM-Kanji-Random",
+		"author": "njwilliams",
+		"desc": "Show a random Kanji",
+		"cat": "Entertainment / Misc"
+	},
+	{
 		"longname": "MMM-KudaGo",
 		"id": "polarbearjngl/MMM-KudaGo",
 		"url": "https://github.com/polarbearjngl/MMM-KudaGo",
@@ -5629,6 +5685,14 @@
 		"url": "https://github.com/mykle1/MMM-MARS",
 		"author": "Mykle1",
 		"desc": "Mars Exploration Rover missions.",
+		"cat": "Entertainment / Misc"
+	},
+	{
+		"longname": "MMM-Mopidy-MPD",
+		"id": "coderpussy/MMM-Mopidy-MPD",
+		"url": "https://github.com/coderpussy/MMM-Mopidy-MPD",
+		"author": "c0d3rpu55y",
+		"desc": "Same like MMM-MPD but restyled and additional with volume level and played time.",
 		"cat": "Entertainment / Misc"
 	},
 	{
@@ -6397,6 +6461,14 @@
 		"url": "https://github.com/0m4r/MMM-covid19",
 		"author": "0m4r",
 		"desc": "Live covid19 numbers provided via https://covid19api.com/",
+		"cat": "Health"
+	},
+	{
+		"longname": "MMM-Covid19-Vaccination",
+		"id": "fhinder/MMM-Covid19-Vaccination",
+		"url": "https://github.com/fhinder/MMM-Covid19-Vaccination",
+		"author": "fhinder",
+		"desc": "Keep track of the covid19 vaccination progress for Germany/German states",
 		"cat": "Health"
 	},
 	{
