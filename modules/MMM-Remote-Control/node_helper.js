@@ -923,7 +923,7 @@ module.exports = NodeHelper.create(
 					return true;
 				}
 				if (query.action === "VERTICAL") {
-					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate left", opts, (error, stdout, stderr) => {
+					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate right", opts, (error, stdout, stderr) => {
 						self.checkForExecError(error, stdout, stderr, res);
 					});
 					var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
