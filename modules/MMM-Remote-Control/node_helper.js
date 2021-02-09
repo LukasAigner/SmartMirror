@@ -57,7 +57,7 @@ module.exports = NodeHelper.create(
 				var data = fs.readFileSync(path.resolve(__dirname + "/window.json"));
 				data = JSON.parse(data.toString());
 				if (data.width < data.height) {
-					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate left", (error, stdout, stderr) => {});
+					exec("DISPLAY=:0 xrandr --output HDMI-1 --rotate right", (error, stdout, stderr) => {});
 				}
 
 				this.combineConfig();
