@@ -242,17 +242,10 @@ module.exports = {
 			wifi.init({
 				iface: "wlan0"
 			});
-			wifi.scan((error, networks) => {
-				if (error) {
-					console.log(error);
-				} else {
-					console.log(networks);
-				}
-			});
 			wifi.connect({ ssid: req.body.ssid, password: req.body.pw }, (error) => {
-				if (error != undefined) {
+				if (error) {
 					res.status(400).json({ success: false, status: "error", reason: "Could connect to Network", info: error });
-					return console.log(err);
+					return console.log(error);
 				}
 				let response = { success: true };
 				let status = 200;
