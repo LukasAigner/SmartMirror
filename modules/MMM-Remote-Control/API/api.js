@@ -244,9 +244,7 @@ module.exports = {
 			});
 			wifi.connect({ ssid: req.body.ssid, password: req.body.pw }, (error) => {
 				if (error) {
-					response = { success: false, status: "error", reason: "Could connect to Network", info: error };
-					status = 400;
-					res.status(status).json(response);
+					res.status(400).json({ success: false, status: "error", reason: "Could connect to Network", info: error });
 					return console.log(err);
 				}
 				let response = { success: true };
