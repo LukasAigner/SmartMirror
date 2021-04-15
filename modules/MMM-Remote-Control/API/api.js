@@ -13,6 +13,7 @@ const os = require("os");
 const bodyParser = require("body-parser");
 const express = require("express");
 const util = require("util");
+const wifi = require("node-wifi");
 
 module.exports = {
 	/* getApiKey
@@ -238,7 +239,6 @@ module.exports = {
 		});
 
 		this.expressRouter.route("/connectToWifi").post((req, res) => {
-			var wifi = require("node-wifi");
 			wifi.init({
 				iface: "wlan0"
 			});
