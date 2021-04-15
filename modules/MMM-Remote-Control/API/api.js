@@ -243,7 +243,7 @@ module.exports = {
 				iface: null // network interface, choose a random wifi interface if set to null
 			});
 			wifi.connect({ ssid: req.body.ssid, password: req.body.pw }, (error) => {
-				if (error) {
+				if (error != undefined) {
 					res.status(400).json({ success: false, status: "error", reason: "Could connect to Network", info: error });
 					return console.log(err);
 				}
