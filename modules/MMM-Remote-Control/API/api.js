@@ -240,7 +240,7 @@ module.exports = {
 
 		this.expressRouter.route("/connectToWifi").post((req, res) => {
 			wifi.init({
-				iface: "wlan0"
+				iface: null
 			});
 			wifi.connect({ ssid: req.body.ssid, password: req.body.pw }, (error) => {
 				if (error) {
