@@ -240,7 +240,14 @@ module.exports = {
 		this.expressRouter.route("/connectToWifi").post((req, res) => {
 			var wifi = require("node-wifi");
 			wifi.init({
-				iface: null // network interface, choose a random wifi interface if set to null
+				iface: wlan0
+			});
+			wifi.scan((error, networks) => {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log(networks);
+				}
 			});
 			wifi.connect({ ssid: req.body.ssid, password: req.body.pw }, (error) => {
 				if (error != undefined) {
