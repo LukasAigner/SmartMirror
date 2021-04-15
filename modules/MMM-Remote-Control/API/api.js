@@ -238,6 +238,18 @@ module.exports = {
 		});
 
 		this.expressRouter.route("/connectToWifi").post((req, res) => {
+			var wifi = require("node-wifi");
+			wifi.connect({ ssid: req.body.ssid, password: req.body.pw }, (error) => {
+				if (error) {
+					response = { success: false, status: "error", reason: "Could connect to Network", info: error };
+					status = 400;
+					res.status(status).json(response);
+					return console.log(err);
+				}
+				let response = { success: true };
+				let status = 200;
+				res.status(status).json(response);
+			});
 			console.log(req.body.ssid);
 			console.log(req.body.pw);
 		});
