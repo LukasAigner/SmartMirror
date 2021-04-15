@@ -174,13 +174,13 @@ module.exports = {
 			fs.writeFile(
 				configPath,
 				header +
-				util.inspect(req.body.config, {
-					showHidden: false,
-					depth: null,
-					maxArrayLength: null,
-					compact: false
-				}) +
-				footer,
+					util.inspect(req.body.config, {
+						showHidden: false,
+						depth: null,
+						maxArrayLength: null,
+						compact: false
+					}) +
+					footer,
 				function (err) {
 					if (err) {
 						response = { success: false, status: "error", reason: "Could not save settings", info: error };
@@ -210,14 +210,14 @@ module.exports = {
 		});
 
 		this.expressRouter.route("/getIP").get((req, res) => {
-			const { networkInterfaces } = require('os');
+			const { networkInterfaces } = require("os");
 
 			const nets = networkInterfaces();
 			const results = Object.create(null);
 
 			for (const name of Object.keys(nets)) {
 				for (const net of nets[name]) {
-					if (net.family === 'IPv4' && !net.internal) {
+					if (net.family === "IPv4" && !net.internal) {
 						if (!results[name]) {
 							results[name] = [];
 						}
@@ -230,13 +230,17 @@ module.exports = {
 				status = 400;
 				res.status(status).json(response);
 				return console.log(err);
-			}
-			else {
+			} else {
 				let response = { success: true, data: results };
 				let status = 200;
 				res.status(status).json(response);
 			}
-		})
+		});
+
+		this.expressRouter.route("/connectToWifi").post((req, res) => {
+			console.log(req.body.ssid);
+			console.log(req.body.pw);
+		});
 
 		this.expressRouter.route("/update/:moduleName").get((req, res) => {
 			this.updateModule(req.params.moduleName, res);

@@ -54,7 +54,7 @@
 		"lodash": "^4.17.20",
 		"mocha": "^7.1.2",
 		"mocha-each": "^2.0.1",
-		"mocha-logger": "^1.0.6",
+		"mocha-logger": "^1.0.7",
 		"nyc": "^15.1.0",
 		"prettier": "^2.1.2",
 		"pretty-quick": "^3.0.2",
@@ -81,11 +81,12 @@
 		"module-alias": "^2.2.2",
 		"moment": "^2.28.0",
 		"node-ical": "^0.12.0",
+		"node-wifi": "^2.0.14",
 		"request": "^2.88.2",
 		"rrule": "^2.6.6",
 		"rrule-alt": "^2.2.8",
 		"simple-git": "^1.85.0",
-		"socket.io": "^2.3.0",
+		"socket.io": "^2.4.1",
 		"valid-url": "^1.0.9"
 	},
 	"_moduleAliases": {
